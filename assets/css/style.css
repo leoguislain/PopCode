@@ -50,7 +50,7 @@ body {
 
 .lettreO{
     animation: flashing .2s infinite alternate;
-    animation-delay: 5.6s;
+    animation-delay: 3.2s;
 }
 
 .lettreP2{
@@ -60,22 +60,22 @@ body {
 
 .lettreC{
     animation: flashing 2s infinite alternate;
-    animation-delay: 1.8s;
+    animation-delay: 1.2s;
 }
 
 .lettreO2{
     animation: flashing 0.2s infinite alternate;
-    animation-delay: 1.4s;
+    animation-delay: 0.9s;
 }
 
 .lettreD{
     animation: flashing 2.1s infinite alternate;
-    animation-delay: 2.1s;
+    animation-delay: 1.4s;
 }
 
 .lettreE{
     animation: flashing 0.7s infinite alternate;
-    animation-delay: 3.2s;
+    animation-delay: 2.2s;
 }
 
 @keyframes flashing {
@@ -133,5 +133,8 @@ body {
     font-size: 15vh;
     justify-content: center;
     align-items: center;
+}
 
+.logo{
+    width: 30%;
 }

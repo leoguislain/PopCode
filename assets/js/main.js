@@ -1,10 +1,10 @@
-setTimeout(removeanimation, 7000)
-setTimeout(switchoffO, 9600)
-setTimeout(switchoffP2, 11000)
-setTimeout(switchoffE, 11600)
-setTimeout(switchoffAll, 12300)
-setTimeout(switchPage, 13000)
-setTimeout(launchSite, 14000)
+setTimeout(removeanimation, 5000)
+setTimeout(switchoffO, 6600)
+setTimeout(switchoffP2, 6800)
+setTimeout(switchoffE, 7200)
+setTimeout(switchoffAll, 7600)
+setTimeout(switchPage, 8600)
+setTimeout(launchSite, 10000)
 
 
 let titre = document.querySelectorAll('.titre')
