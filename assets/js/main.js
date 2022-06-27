@@ -2,9 +2,9 @@ setTimeout(removeanimation, 5000)
 setTimeout(switchoffO, 6600)
 setTimeout(switchoffP2, 6800)
 setTimeout(switchoffE, 7200)
-setTimeout(switchoffAll, 7600)
-setTimeout(switchPage, 8600)
-setTimeout(launchSite, 10000)
+setTimeout(switchoffAll, 7500)
+setTimeout(switchPage, 8100)
+setTimeout(launchSite, 9200)
 
 
 let titre = document.querySelectorAll('.titre')
@@ -48,4 +48,3 @@ function launchSite() {
     main.style = 'display:flex;'
     imgbug.style = 'display:none;'
 }
-
