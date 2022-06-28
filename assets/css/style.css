@@ -126,16 +126,52 @@ body {
     display: none;
 }
 
-.main {
+.waitingscreen {
     display: none;
     min-height: 100vh;
-    background-color: #171834;
+    background-image: url('../img/bgbrick.png');
     color: white;
     font-size: 15vh;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .logo {
     width: 30%;
+}
+
+.legals{
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 12px;
+}
+
+.mentions{
+    margin: 0 30px 15px 0 ;
+    padding-bottom: 2px;
+    text-decoration: none;
+    color: white;
+    border-bottom: solid 1px;
+}
+
+.clicktostart{
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.refnumber{
+    color: #0AEFF7;
+    font-size: 150px;
+    margin: 0;
+}
+
+.reftext{
+    line-height: 25px;
 }
