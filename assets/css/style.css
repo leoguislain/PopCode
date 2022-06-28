@@ -5,6 +5,11 @@ body {
     height: 100vh;
 }
 
+@font-face {
+    font-family: 'Gotham';
+    src: url('../fonts/GothamMedium.ttf');
+}
+
 .loader {
     display: flex;
     justify-content: space-evenly;
@@ -130,6 +135,7 @@ body {
     display: none;
     min-height: 100vh;
     background-image: url('../img/bgbrick.png');
+    font-family: 'Gotham', sans-serif;
     color: white;
     font-size: 15vh;
     justify-content: center;
@@ -138,7 +144,7 @@ body {
 }
 
 .logo {
-    width: 30%;
+    width: 60vh;
 }
 
 .legals{
@@ -159,6 +165,7 @@ body {
 
 .clicktostart{
     font-size: 15px;
+    font-weight: 500;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -168,10 +175,16 @@ body {
 
 .refnumber{
     color: #0AEFF7;
-    font-size: 150px;
+    font-size: 18vh;
     margin: 0;
 }
 
 .reftext{
-    line-height: 25px;
+    line-height: 32px;
+    letter-spacing: 4px;
+}
+
+.start{
+    color: #FFAAFF;
+    letter-spacing: 8px;
 }
