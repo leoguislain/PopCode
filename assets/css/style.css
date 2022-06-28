@@ -144,7 +144,7 @@ body {
 }
 
 .logo {
-    width: 60vh;
+    width: 55vh;
 }
 
 .legals{
@@ -156,7 +156,7 @@ body {
 }
 
 .mentions{
-    margin: 0 30px 15px 0 ;
+    margin: 0 30px 30px 0 ;
     padding-bottom: 2px;
     text-decoration: none;
     color: white;
@@ -164,7 +164,7 @@ body {
 }
 
 .clicktostart{
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 500;
     display: flex;
     justify-content: center;
@@ -175,16 +175,17 @@ body {
 
 .refnumber{
     color: #0AEFF7;
-    font-size: 18vh;
+    font-size: 14vh;
     margin: 0;
 }
 
 .reftext{
     line-height: 32px;
-    letter-spacing: 4px;
+    letter-spacing: 2px;
+    padding-bottom: 30px;
 }
 
 .start{
     color: #FFAAFF;
-    letter-spacing: 8px;
+    letter-spacing: 5px;
 }
