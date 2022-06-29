@@ -45,14 +45,13 @@ function switchoffE() {
 function switchPage() {
     document.body.style = 'background : black;'
     loader.style = 'display:none;'
-    imgbug.style = 'display:block;'
+    imgbug.style = 'display:block; animation: appear 1s alternate;'
 }
 
 function launchSite() {
-    document.body.style = 'background : white;'
-    waitingscreen.style = 'display:flex;'
+    waitingscreen.style = 'display:flex; animation: appear 1s alternate;'
     imgbug.style = 'display:none;'
-    mentions.style = 'display: flex;'
+    mentions.style = 'display: flex; animation: appear 1s alternate;'
 }
 
 function launchClickToStart() {
