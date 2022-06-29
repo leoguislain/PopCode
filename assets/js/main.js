@@ -6,6 +6,7 @@ setTimeout(switchoffAll, 6500)
 setTimeout(switchPage, 7100)
 setTimeout(launchSite, 8200)
 setTimeout(launchClickToStart, 10000)
+setTimeout(startAnimationEnd,14500)
 
 // setTimeout(launchSite, 5)
 
@@ -59,4 +60,14 @@ function launchClickToStart() {
     document.querySelector('.refnumber').style = 'animation: numberneon 1s alternate; animation-delay: 2.5s;'
     clicktostart.style = 'opacity: 100;'
     document.querySelector('.logo').style = 'position: relative'
+}
+
+document.querySelector('.start').addEventListener('click', function() {
+    waitingscreen.style = 'display: flex; animation: disappear 1.3s alternate;'
+})
+
+function startAnimationEnd() {
+    waitingscreen.addEventListener('animationend', function() {
+        waitingscreen.style = 'display: none;'
+    })
 }
