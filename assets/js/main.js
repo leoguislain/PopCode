@@ -1,18 +1,21 @@
-// setTimeout(removeanimation, 5000)
-// setTimeout(switchoffO, 6600)
-// setTimeout(switchoffP2, 6800)
-// setTimeout(switchoffE, 7200)
-// setTimeout(switchoffAll, 7500)
-// setTimeout(switchPage, 8100)
-// setTimeout(launchSite, 9200)
+setTimeout(removeanimation, 4500)
+setTimeout(switchoffO, 5600)
+setTimeout(switchoffP2, 5800)
+setTimeout(switchoffE, 6200)
+setTimeout(switchoffAll, 6500)
+setTimeout(switchPage, 7100)
+setTimeout(launchSite, 8200)
+setTimeout(launchClickToStart, 10000)
 
-setTimeout(launchSite, 5)
+// setTimeout(launchSite, 5)
 
 
 let titre = document.querySelectorAll('.titre')
 let loader = document.querySelector('.loader')
 let imgbug = document.querySelector('.imgbug')
 let waitingscreen = document.querySelector('.waitingscreen')
+let mentions = document.querySelector('.legals')
+let clicktostart = document.querySelector('.clicktostart')
 
 function removeanimation() {
     titre.forEach(function (classmodif) {
@@ -49,4 +52,12 @@ function launchSite() {
     document.body.style = 'background : white;'
     waitingscreen.style = 'display:flex;'
     imgbug.style = 'display:none;'
+    mentions.style = 'display: flex;'
+}
+
+function launchClickToStart() {
+    clicktostart.style = 'display: flex;'
+    document.querySelector('.refnumber').style = 'animation: numberneon 1s alternate; animation-delay: 2.5s;'
+    clicktostart.style = 'opacity: 100;'
+    document.querySelector('.logo').style = 'position: relative'
 }

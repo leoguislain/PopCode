@@ -141,14 +141,17 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    transition: all 1s;
 }
 
 .logo {
     width: 55vh;
+    position: absolute;
+    transition: all 1s;
 }
 
 .legals{
-    display: flex;
+    display: none;
     position: absolute;
     bottom: 0;
     right: 0;
@@ -171,6 +174,8 @@ body {
     flex-direction: column;
     text-align: center;
     text-transform: uppercase;
+    opacity: 0;
+    transition: all 1s;
 }
 
 .refnumber{
@@ -188,4 +193,74 @@ body {
 .start{
     color: #FFAAFF;
     letter-spacing: 5px;
+    transition: letter-spacing 0.6s;
+    cursor: pointer;
+}
+
+.start:hover{
+    letter-spacing: 3px;
+    animation: starting 1s infinite alternate;
+}
+
+@keyframes starting {
+
+    0%,
+    18%,
+    21%,
+    32%,
+    35%,
+    39%,
+    42%,
+    100% {
+        -webkit-text-stroke: 1px;
+        -webkit-text-stroke-color: rgb(244, 29, 201);
+        color: #ffd6d6;
+        text-shadow:
+            0 0 16px #ffd6d6,
+            0 0 16px #ffd6d6,
+            0 0 32px #ff03c8,
+            0 0 64px #ff03c8,
+            0 0 90px #ff03c8,
+            0 0 124px #ff03c8;
+    }
+
+    20%,
+    34%,
+    41% {
+        -webkit-text-stroke: none;
+        -webkit-text-stroke-color: none;
+        text-shadow: none;
+        box-shadow: none;
+    }
+}
+
+@keyframes numberneon {
+
+    0%,
+    18%,
+    21%,
+    32%,
+    35%,
+    39%,
+    42%,
+    100% {
+        -webkit-text-stroke: 4px;
+        -webkit-text-stroke-color: #579BFE;
+        text-shadow:
+            0 0 16px #ffd6d6,
+            0 0 16px #ffd6d6,
+            0 0 32px #579BFE,
+            0 0 64px #579BFE,
+            0 0 90px #579BFE,
+            0 0 124px #579BFE;
+    }
+
+    20%,
+    34%,
+    41% {
+        -webkit-text-stroke: none;
+        -webkit-text-stroke-color: none;
+        text-shadow: none;
+        box-shadow: none;
+    }
 }

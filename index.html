@@ -10,21 +10,30 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Poppins&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/vanilla-counter"></script>
 </head>
 
 <body>
-    <!-- <div class="loader">
+    <div class="loader">
         <div class="title">
             <span class="lettreP titre">P</span><span class="lettreO titre">O</span><span
                 class="lettreP2 titre">P</span><span class="lettreC titre">C</span><span
                 class="lettreO2 titre">O</span><span class="lettreD titre">D</span><span class="lettreE titre">E</span>
         </div>
-    </div> -->
+    </div>
     <div class="imgbug"></div>
     <div class="waitingscreen">
         <img class="logo" src="assets/img/logo.svg" alt="Logo de PopCode">
         <div class="clicktostart">
-            <p class="refnumber">30</p>
+            <span 
+            data-vanilla-counter 
+            data-start-at="0" 
+            data-end-at="30" 
+            data-time="1500" 
+            data-delay="11000" 
+            data-format="{}"
+            class="refnumber"
+        > </span>
             <p class="reftext">références de<br>langages de programmation<br>à retrouver</p>
             <p class="start">Cliquer pour commencer</p>
         </div>
@@ -34,6 +43,9 @@
         </div>
     </div>
     <script src="assets/js/main.js"></script>
+    <script>
+        VanillaCounter();
+    </script>
 </body>
 
 </html>
