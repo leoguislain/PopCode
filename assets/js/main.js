@@ -1,14 +1,12 @@
-setTimeout(removeanimation, 4500)
-setTimeout(switchoffO, 5600)
-setTimeout(switchoffP2, 5800)
-setTimeout(switchoffE, 6200)
-setTimeout(switchoffAll, 6500)
-setTimeout(switchPage, 7100)
-setTimeout(launchSite, 8200)
-setTimeout(launchClickToStart, 10000)
-setTimeout(startAnimationEnd,14500)
-
-// setTimeout(launchSite, 5)
+// setTimeout(removeanimation, 4500)
+// setTimeout(switchoffO, 5600)
+// setTimeout(switchoffP2, 5800)
+// setTimeout(switchoffE, 6200)
+// setTimeout(switchoffAll, 6500)
+// setTimeout(switchPage, 7100)
+// setTimeout(launchSite, 8200)
+// setTimeout(launchClickToStart, 10000)
+// setTimeout(startAnimationEnd, 14500)
 
 
 let titre = document.querySelectorAll('.titre')
@@ -17,6 +15,10 @@ let imgbug = document.querySelector('.imgbug')
 let waitingscreen = document.querySelector('.waitingscreen')
 let mentions = document.querySelector('.legals')
 let clicktostart = document.querySelector('.clicktostart')
+let game = document.querySelector('.game')
+
+waitingscreen.style = 'display: none;'
+game.style = 'display: flex;'
 
 function removeanimation() {
     titre.forEach(function (classmodif) {
@@ -62,12 +64,13 @@ function launchClickToStart() {
     document.querySelector('.logo').style = 'position: relative'
 }
 
-document.querySelector('.start').addEventListener('click', function() {
+document.querySelector('.start').addEventListener('click', function () {
     waitingscreen.style = 'display: flex; animation: disappear 1.3s alternate;'
 })
 
 function startAnimationEnd() {
-    waitingscreen.addEventListener('animationend', function() {
+    waitingscreen.addEventListener('animationend', function () {
         waitingscreen.style = 'display: none;'
+        game.style = 'display: flex;'
     })
 }
