@@ -160,7 +160,6 @@ body {
 }
 
 .legalsgame{
-    font-family: 'Gotham', sans-serif;
     display: flex;
     position: absolute;
     bottom: 0;
@@ -300,6 +299,7 @@ body {
 }
 
 .game{
+    font-family: 'Gotham', sans-serif;
     background-image: url('../img/FondGame.png');
     background-size: cover;
     width: 100%;
@@ -311,4 +311,18 @@ body {
     position: absolute;
     right: 30px;
     top: 25px;
+}
+
+.score{
+    position: absolute;
+    top: 20px;
+    left: 30px;
+}
+
+.textscore{
+    text-transform: uppercase;
+    transform: rotate(-90deg);
+    color: #0AEFF7;
+    font-size: 10px;
+    border-bottom: 1px solid white;
 }
