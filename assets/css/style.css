@@ -10,6 +10,16 @@ body {
     src: url('../fonts/GothamMedium.ttf');
 }
 
+@font-face {
+    font-family: 'GothamThin';
+    src: url('../fonts/GothamThin.otf');
+}
+
+@font-face {
+    font-family: 'GothamLight';
+    src: url('../fonts/GothamLight.otf');
+}
+
 .loader {
     display: flex;
     justify-content: space-evenly;
@@ -314,15 +324,59 @@ body {
 }
 
 .score{
+    display: flex;
     position: absolute;
-    top: 20px;
-    left: 30px;
+    top: 23px;
+    left: 22px;
 }
 
 .textscore{
+    font-family: 'GothamLight', sans-serif;
     text-transform: uppercase;
     transform: rotate(-90deg);
     color: #0AEFF7;
-    font-size: 10px;
+    font-size: 9px;
     border-bottom: 1px solid white;
+    letter-spacing: 2px;
+    padding-bottom: 2px;
+}
+
+.errors{
+    margin-top: 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.reponses{
+    margin-bottom: 3px;
+    text-align: center;
+}
+
+.scorehorizontal{
+    font-size: 17px;
+    position: absolute;
+    top: 0px;
+    left: 60px;
+    color: white;
+    letter-spacing: 4px;
+    margin-left: 6px;
+    width: 62px;
+}
+
+.owned{
+    font-family: 'GothamLight', sans-serif;
+    color: white;
+    display: flex;
+    position: absolute;
+    left: 100px;
+    bottom: 16px;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: solid 1px white;
+    padding: 0px 8px;
+}
+
+.loupe{
+    margin-right: 5px;
 }
