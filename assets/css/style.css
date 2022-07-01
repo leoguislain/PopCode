@@ -5,6 +5,13 @@ body {
     height: 100vh;
 }
 
+*{
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 @font-face {
     font-family: 'Gotham';
     src: url('../fonts/GothamMedium.ttf');
@@ -310,9 +317,18 @@ body {
 
 .game{
     font-family: 'Gotham', sans-serif;
-    background-image: url('../img/FondGame.png');
-    background-size: cover;
     width: 100%;
+    height: 100vh;
+}
+
+/* .gameshow{
+    display: none;
+} */
+
+.backgroundgame{
+    position: absolute;
+    object-fit: cover;
+    width: 100vw;
     height: 100vh;
 }
 
@@ -327,7 +343,7 @@ body {
     display: flex;
     position: absolute;
     top: 23px;
-    left: 22px;
+    left: 20px;
 }
 
 .textscore{
@@ -338,7 +354,7 @@ body {
     font-size: 9px;
     border-bottom: 1px solid white;
     letter-spacing: 2px;
-    padding-bottom: 2px;
+    padding-bottom: 3px;
 }
 
 .errors{
@@ -360,7 +376,7 @@ body {
     color: white;
     letter-spacing: 4px;
     margin-left: 6px;
-    width: 62px;
+    width: 76px;
 }
 
 .owned{
@@ -368,15 +384,47 @@ body {
     color: white;
     display: flex;
     position: absolute;
-    left: 100px;
-    bottom: 16px;
-    font-size: 9px;
+    left: 91px;
+    bottom: 30px;
+    font-size: 8px;
     text-transform: uppercase;
     letter-spacing: 2px;
     border: solid 1px white;
-    padding: 0px 8px;
+    padding: 0px 12px 0px 10px;
+
 }
 
 .loupe{
     margin-right: 5px;
+}
+
+.zoom{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: #D9D9D9;
+    bottom: 27px;
+    left: 32px;
+    font-size: 12px;
+}
+
+.zoombar{
+    background-color: white;
+    height: 125px;
+    width: 1px;
+}
+
+.more, .less{
+    margin: 6px;
+}
+
+.less{
+    margin-top: 0px;
+}
+
+.textzoom{
+    transform: rotate(-90deg);
+    color: #0AEFF7;
+    font-size: 10px;
 }
