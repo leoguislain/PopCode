@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Poppins&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/vanilla-counter"></script>
+    <script src="https://kit.fontawesome.com/5131dc2a93.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -30,11 +31,12 @@
     <section class="waitingscreen">
         <img class="logo" src="assets/img/logo.svg" alt="Logo de PopCode">
         <div class="clicktostart">
-            <span data-vanilla-counter data-start-at="0" data-end-at="30" data-time="1500" data-delay="11000"
+            <span data-vanilla-counter data-start-at="0" data-end-at="28" data-time="1500" data-delay="10000"
                 data-format="{}" class="refnumber"> </span>
             <p class="reftext">références de<br>langages de programmation<br>à retrouver</p>
             <p class="start">Cliquer pour commencer</p>
         </div>
+        <p class="resizemsg msgresize">Merci de jouer sur un écran plus grand !</p>
         <div class="legals">
             <a class="mentions" href="#">Mentions légales</a>
             <a class="mentions" href="#">Politique de confidentialité</a>
@@ -51,7 +53,7 @@
             <p class="textscore">Score</p>
         </div>
         <div class="scorehorizontal gameshow">
-            <p class="reponses">00/30</p>
+            <p class="reponses">00/28</p>
             <p class="errors"><span class="error1">X</span><span class="error2">X</span><span class="error3">X</span></p>
         </div>
         <div class="owned gameshow">
@@ -65,6 +67,7 @@
             <p class="less">_</p>
         </div>
     </section>
+
     <script src="assets/js/main.js"></script>
     <script>
         VanillaCounter();
