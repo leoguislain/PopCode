@@ -155,9 +155,8 @@ window.onkeydown = function (letterpressed) {
     if(letters.includes(letterpressed.key) == true &gameOn == true) {
         modalanswer.style = 'display: flex; animation: appear 0.4s alternate;'
         document.querySelector('.answerzone').innerHTML += letterpressed.key
-        console.log(letterpressed.key) 
-    }if(letterpressed.key == 'BackSpace' & gameOn == true) {
-        modalanswer.innerHTML = modalanswer.innerHTML.slice(0, -1)
+    }if (letterpressed.key == 'Backspace') {
+        document.querySelector('.answerzone').innerHTML = document.querySelector('.answerzone').innerHTML.slice(0, -1)
     }else {
         return
     }
