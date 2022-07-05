@@ -108,6 +108,7 @@ document.querySelector('.start').addEventListener('click', function () {
         document.querySelector('.owned').style = 'animation: appear 1s alternate;'
         document.querySelector('.zoom').classList.remove('gameshow')
         document.querySelector('.zoom').style = 'animation: appear 1s alternate;'
+        gameOn = true
     })
 })
 
@@ -140,13 +141,24 @@ let error3 = false
 // COMPTEUR DE BONNES REPONSES
 
 // OUVERTURE MODAL REPONSES
+const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 var modalanswer = document.querySelector('.modalanswer')
-game.addEventListener('click', function(){
-    modalanswer.style = 'display: flex; animation: appear 0.4s alternate;'
-})
+let gameOn = false
 
 window.addEventListener("keydown", function (event) {
     if (event.key == "Escape") {
-      modalanswer.style = 'display:none;'
+        modalanswer.style = 'display:none;'
     }
-  });
+});
+
+window.onkeydown = function (letterpressed) {
+    if(letters.includes(letterpressed.key) == true &gameOn == true) {
+        modalanswer.style = 'display: flex; animation: appear 0.4s alternate;'
+        document.querySelector('.answerzone').innerHTML += letterpressed.key
+        console.log(letterpressed.key) 
+    }if(letterpressed.key == 'BackSpace' & gameOn == true) {
+        modalanswer.innerHTML = modalanswer.innerHTML.slice(0, -1)
+    }else {
+        return
+    }
+}

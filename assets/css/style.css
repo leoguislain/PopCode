@@ -487,6 +487,15 @@ body {
     font-weight: 500;
     margin: 45px 0px;
     letter-spacing: 1px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.answerzone:focus-visible{
+    outline: none;
 }
 
 .answerconsign{
