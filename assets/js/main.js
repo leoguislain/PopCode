@@ -116,25 +116,37 @@ let error2 = false
 let error3 = false
 
 // FONCTION D'ERREURS A MODIFIER
-document.querySelector('.backgroundgame').addEventListener('click', function () {
-    if (error1 == false & error1 != true) {
-        document.querySelector('.error1').style = 'opacity: 1; color: #0AEFF7;'
-        error1 = true
-        console.log('erreur1 =' + error1)
-        return
-    }
-    if (error1 == true & error2 == false) {
-        document.querySelector('.error2').style = 'opacity:1; color: #0AEFF7;'
-        error2 = true
-        console.log('erreur2=' + error2)
-        return
-    }
-    if (error2 == true & error3 == false) {
-        document.querySelector('.error3').style = 'opacity: 1; color: #0AEFF7;'
-        error3 = true
-        console.log('erreur3=' + error3)
-        return
-    }
-})
+// document.querySelector('.backgroundgame').addEventListener('click', function () {
+//     if (error1 == false & error1 != true) {
+//         document.querySelector('.error1').style = 'opacity: 1; color: #0AEFF7;'
+//         error1 = true
+//         console.log('erreur1 =' + error1)
+//         return
+//     }
+//     if (error1 == true & error2 == false) {
+//         document.querySelector('.error2').style = 'opacity:1; color: #0AEFF7;'
+//         error2 = true
+//         console.log('erreur2=' + error2)
+//         return
+//     }
+//     if (error2 == true & error3 == false) {
+//         document.querySelector('.error3').style = 'opacity: 1; color: #0AEFF7;'
+//         error3 = true
+//         console.log('erreur3=' + error3)
+//         return
+//     }
+// })
 
 // COMPTEUR DE BONNES REPONSES
+
+// OUVERTURE MODAL REPONSES
+var modalanswer = document.querySelector('.modalanswer')
+game.addEventListener('click', function(){
+    modalanswer.style = 'display: flex; animation: appear 0.4s alternate;'
+})
+
+window.addEventListener("keydown", function (event) {
+    if (event.key == "Escape") {
+      modalanswer.style = 'display:none;'
+    }
+  });
