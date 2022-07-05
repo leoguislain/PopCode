@@ -1,12 +1,3 @@
-// setTimeout(removeanimation, 4500)
-// setTimeout(switchoffO, 5600)
-// setTimeout(switchoffP2, 5800)
-// setTimeout(switchoffE, 6200)
-// setTimeout(switchoffAll, 6500)
-// setTimeout(switchPage, 7100)
-// setTimeout(launchSite, 8200)
-// setTimeout(launchClickToStart, 10000)
-
 let titre = document.querySelectorAll('.titre')
 let loader = document.querySelector('.loader')
 let imgbug = document.querySelector('.imgbug')
