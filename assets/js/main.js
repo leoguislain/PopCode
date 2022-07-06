@@ -140,25 +140,51 @@ let error3 = false
 
 // COMPTEUR DE BONNES REPONSES
 
-// OUVERTURE MODAL REPONSES
+// OUVERTURE / FERMETURE MODAL REPONSES
 const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 var modalanswer = document.querySelector('.modalanswer')
 let gameOn = false
+let answerOn = false
+let answerzone = document.querySelector('.answerzone')
 
 window.addEventListener("keydown", function (event) {
     if (event.key == "Escape") {
         document.querySelector('.answerzone').innerHTML = ""
         modalanswer.style = 'display:none;'
+        answerOn = false
     }
 });
 
-window.onkeydown = function (letterpressed) {
-    if(letters.includes(letterpressed.key) == true &gameOn == true) {
+window.onkeydown = function (event) {
+    if(letters.includes(event.key) == true &gameOn == true) {
         modalanswer.style = 'display: flex; animation: appear 0.4s alternate;'
-        document.querySelector('.answerzone').innerHTML += letterpressed.key
-    }if (letterpressed.key == 'Backspace') {
-        document.querySelector('.answerzone').innerHTML = document.querySelector('.answerzone').innerHTML.slice(0, -1)
+        document.querySelector('.answerzone').innerHTML += event.key
+        answerOn = true
+    }if (event.key == 'Backspace') {
+        answerzone.innerHTML = answerzone.innerHTML.slice(0, -1)
     }else {
         return
     }
 }
+
+// VERIFICATEUR DE BONNES REPONSES
+let languages = ['JavaScript', 'HTML', 'CSS', 'SQL', 'Python', 'Java', 'Bash', 'PowerShell', 'C#', 'PHP', 'C++', 'TypeScript', 'C', 'Ruby', 'Go', 'Assembly', 'Swift', 'Kotlin', 'R', 'VBA', 'Objective-C', 'Scala', 'Rust', 'Dart', 'Elixir', 'Clojure', 'WebAssembly']
+let correctanswers = []
+
+window.addEventListener("keydown", function (event) {
+    if (event.key == "Enter" & answerOn == true) {
+        for (let i = 0; i < languages.length; i++) {
+            if (languages[i].toLowerCase == document.querySelector('.answerzone').innerHTML.toLowerCase) {
+                correctanswers.push(document.querySelector('.answerzone').innerHTML)
+                document.querySelector('.answerzone').innerHTML = ""
+                modalanswer.style = 'display:none;'
+                console.log(correctanswers)
+                break
+            } else {
+                break
+            }    
+        }
+    } else {
+        return
+    }
+})

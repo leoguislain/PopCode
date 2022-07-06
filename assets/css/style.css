@@ -490,7 +490,7 @@ body {
     background-color: transparent;
     border: none;
     color: white;
-    text-align: center;
+    /* text-align: center; */
     text-transform: uppercase;
 }
 
