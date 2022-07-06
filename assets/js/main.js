@@ -138,8 +138,6 @@ let error3 = false
 //     }
 // })
 
-// COMPTEUR DE BONNES REPONSES
-
 // OUVERTURE / FERMETURE MODAL REPONSES
 const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 var modalanswer = document.querySelector('.modalanswer')
@@ -197,7 +195,7 @@ window.addEventListener("keydown", function (event) {
 function scoreup () {
     if (correctanswers.length < 10) {
         document.querySelector('.numberscore').innerHTML = "0"+correctanswers.length.toString()
-    }else if (correctanswers.length < 29) {
+    }else if (correctanswers.length < languages.length) {
         document.querySelector('.numberscore').innerHTML = correctanswers.length.toString()
     }else {
         return
