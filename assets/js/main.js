@@ -156,13 +156,14 @@ window.addEventListener("keydown", function (event) {
 });
 
 window.onkeydown = function (event) {
-    if(letters.includes(event.key) == true &gameOn == true) {
+    if (letters.includes(event.key) == true & gameOn == true) {
         modalanswer.style = 'display: flex; animation: appear 0.4s alternate;'
         document.querySelector('.answerzone').innerHTML += event.key
         answerOn = true
-    }if (event.key == 'Backspace') {
+    }
+    if (event.key == 'Backspace') {
         answerzone.innerHTML = answerzone.innerHTML.slice(0, -1)
-    }else {
+    } else {
         return
     }
 }
@@ -174,17 +175,31 @@ let correctanswers = []
 window.addEventListener("keydown", function (event) {
     if (event.key == "Enter" & answerOn == true) {
         for (let i = 0; i < languages.length; i++) {
-            if (languages[i].toLowerCase == document.querySelector('.answerzone').innerHTML.toLowerCase) {
+            if (languages[i].toLowerCase === document.querySelector('.answerzone').innerHTML.toLowerCase) {
                 correctanswers.push(document.querySelector('.answerzone').innerHTML)
                 document.querySelector('.answerzone').innerHTML = ""
                 modalanswer.style = 'display:none;'
+                scoreup()
+                console.log(correctanswers.length);
                 console.log(correctanswers)
+                console.log(languages[i]);
                 break
             } else {
-                break
-            }    
+                return
+            }
         }
     } else {
         return
     }
 })
+
+// AUGMENTATION SCORE EN CAS DE BONNE REPONSE
+function scoreup () {
+    if (correctanswers.length < 10) {
+        document.querySelector('.numberscore').innerHTML = "0"+correctanswers.length.toString()
+    }else if (correctanswers.length < 29) {
+        document.querySelector('.numberscore').innerHTML = correctanswers.length.toString()
+    }else {
+        return
+    }
+}
