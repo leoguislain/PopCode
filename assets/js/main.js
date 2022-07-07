@@ -117,26 +117,26 @@ let error2 = false
 let error3 = false
 
 // FONCTION D'ERREURS A MODIFIER
-// document.querySelector('.backgroundgame').addEventListener('click', function () {
-//     if (error1 == false & error1 != true) {
-//         document.querySelector('.error1').style = 'opacity: 1; color: #0AEFF7;'
-//         error1 = true
-//         console.log('erreur1 =' + error1)
-//         return
-//     }
-//     if (error1 == true & error2 == false) {
-//         document.querySelector('.error2').style = 'opacity:1; color: #0AEFF7;'
-//         error2 = true
-//         console.log('erreur2=' + error2)
-//         return
-//     }
-//     if (error2 == true & error3 == false) {
-//         document.querySelector('.error3').style = 'opacity: 1; color: #0AEFF7;'
-//         error3 = true
-//         console.log('erreur3=' + error3)
-//         return
-//     }
-// })
+function adderror () {
+    if (error1 == false & error1 != true) {
+        document.querySelector('.error1').style = 'opacity: 1; color: #0AEFF7;'
+        error1 = true
+        console.log('erreur1 =' + error1)
+        return
+    }
+    if (error1 == true & error2 == false) {
+        document.querySelector('.error2').style = 'opacity:1; color: #0AEFF7;'
+        error2 = true
+        console.log('erreur2=' + error2)
+        return
+    }
+    if (error2 == true & error3 == false) {
+        document.querySelector('.error3').style = 'opacity: 1; color: #0AEFF7;'
+        error3 = true
+        console.log('erreur3=' + error3)
+        return
+    }
+}
 
 // OUVERTURE / FERMETURE MODAL REPONSES
 const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
@@ -167,37 +167,49 @@ window.onkeydown = function (event) {
 }
 
 // VERIFICATEUR DE BONNES REPONSES
-let languages = ['JavaScript', 'HTML', 'CSS', 'SQL', 'Python', 'Java', 'Bash', 'PowerShell', 'C#', 'PHP', 'C++', 'TypeScript', 'C', 'Ruby', 'Go', 'Assembly', 'Swift', 'Kotlin', 'R', 'VBA', 'Objective-C', 'Scala', 'Rust', 'Dart', 'Elixir', 'Clojure', 'WebAssembly']
-let correctanswers = []
+const languages = ['javascript', 'html', 'CSS', 'SQL', 'Python', 'Java', 'Bash', 'PowerShell', 'C#', 'PHP', 'C++', 'TypeScript', 'C', 'Ruby', 'Go', 'Assembly', 'Swift', 'Kotlin', 'R', 'VBA', 'Objective-C', 'Scala', 'Rust', 'Dart', 'Elixir', 'Clojure', 'WebAssembly']
+var myIndex = languages.indexOf(answerzone.innerHTML.toLowerCase())
+let correctanswers = [];
+let languagesrestants = languages
 
-window.addEventListener("keydown", function (event) {
-    if (event.key == "Enter" & answerOn == true) {
-        for (let i = 0; i < languages.length; i++) {
-            if (languages[i].toLowerCase === document.querySelector('.answerzone').innerHTML.toLowerCase) {
-                correctanswers.push(document.querySelector('.answerzone').innerHTML)
-                document.querySelector('.answerzone').innerHTML = ""
-                modalanswer.style = 'display:none;'
-                scoreup()
-                console.log(correctanswers.length);
-                console.log(correctanswers)
-                console.log(languages[i]);
+window.addEventListener('keydown', function (event) {
+    if (event.key == 'Enter' & answerOn == true) {
+        for (var i = 0; i < languages.length; i++) {
+            if(correctanswers.includes(answerzone.innerHTML.toLowerCase)) {
+                console.log('Déjà dans le tableau')
                 break
-            } else {
-                return
             }
+            if (answerzone.innerHTML.toLowerCase() === languages[i].toLowerCase()) {
+                correctanswers.push(answerzone.innerHTML)
+                // languages.pop(i)
+                // languagesrestants = languages.splice(myIndex, 1)
+                answerzone.innerHTML = ""
+                modalanswer.style = 'display:none;'
+                answerOn = false
+                scoreup()
+                console.log(correctanswers)
+                break
+            }
+            if(i+1 == languages.length) {
+                answerzone.innerHTML = ""
+                modalanswer.style = 'display:none;'
+                answerOn = false
+                adderror()
+            }
+            // if(answerzone.innerHTML.toLowerCase() !== languages[i].toLowerCase() & answerzone.innerHTML.toLowerCase !== correctanswers[i]){
+            //     console.log('Pas dans le tableau');
+            // }
         }
-    } else {
-        return
     }
 })
 
 // AUGMENTATION SCORE EN CAS DE BONNE REPONSE
-function scoreup () {
+function scoreup() {
     if (correctanswers.length < 10) {
-        document.querySelector('.numberscore').innerHTML = "0"+correctanswers.length.toString()
-    }else if (correctanswers.length < languages.length) {
+        document.querySelector('.numberscore').innerHTML = "0" + correctanswers.length.toString()
+    } else if (correctanswers.length < languages.length) {
         document.querySelector('.numberscore').innerHTML = correctanswers.length.toString()
-    }else {
+    } else {
         return
     }
 }
