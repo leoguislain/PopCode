@@ -23,7 +23,7 @@ function checksize(screensize) {
         setTimeout(switchoffAll, 6500)
         setTimeout(switchPage, 7100)
         setTimeout(launchSite, 8200)
-        setTimeout(launchClickToStart, 10000)
+        setTimeout(launchClickToStart, 8800)
         console.log(screensize)
     } else {
         loader.style = 'display:none;'
@@ -106,8 +106,8 @@ document.querySelector('.start').addEventListener('click', function () {
         document.querySelector('.scorehorizontal').style = 'animation: appear 1s alternate;'
         document.querySelector('.owned').classList.remove('gameshow')
         document.querySelector('.owned').style = 'animation: appear 1s alternate;'
-        document.querySelector('.zoom').classList.remove('gameshow')
-        document.querySelector('.zoom').style = 'animation: appear 1s alternate;'
+        document.querySelector('.zoomall').classList.remove('gameshow')
+        document.querySelector('.zoomall').style = 'animation: appear 1s alternate;'
         gameOn = true
     })
 })
@@ -207,7 +207,7 @@ window.addEventListener('keydown', function (event) {
 function scoreup() {
     if (correctanswers.length < 10) {
         document.querySelector('.numberscore').innerHTML = "0" + correctanswers.length.toString()
-    } else if (correctanswers.length < languages.length) {
+    } else if (correctanswers.length < languages.length+1) {
         document.querySelector('.numberscore').innerHTML = correctanswers.length.toString()
     } else {
         return

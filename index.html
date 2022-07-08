@@ -31,7 +31,7 @@
     <section class="waitingscreen">
         <img class="logo" src="assets/img/logo.svg" alt="Logo de PopCode">
         <div class="clicktostart">
-            <span data-vanilla-counter data-start-at="0" data-end-at="27" data-time="1500" data-delay="10000"
+            <span data-vanilla-counter data-start-at="0" data-end-at="27" data-time="1500" data-delay="8800"
                 data-format="{}" class="refnumber"> </span>
             <p class="reftext">références de<br>langages de programmation<br>à retrouver</p>
             <p class="start">Cliquer pour commencer</p>
@@ -43,7 +43,8 @@
         </div>
     </section>
     <section class="gameshow game">
-        <img class="backgroundgame gameshow" src="assets/img/FondGame.jpg" alt="Image du jeu PopCode">
+        <img class="backgroundgame gameshow zoom" src="assets/img/FondGame.jpg" alt="Image du jeu PopCode"
+            height="100vh" width="100vw">
         <img class="petitlogo gameshow" src="assets/img/logosolo.svg" alt="Logo de PopCode">
         <div class="legalsgame">
             <a class="mentions" href="#">Mentions légales</a>
@@ -53,7 +54,7 @@
             <p class="textscore">Score</p>
         </div>
         <div class="scorehorizontal gameshow">
-            <p class="reponses"><span class="numberscore">00</span>/28</p>
+            <p class="reponses"><span class="numberscore">00</span>/27</p>
             <p class="errors"><span class="error1">X</span><span class="error2">X</span><span class="error3">X</span>
             </p>
         </div>
@@ -61,13 +62,15 @@
             <img class="loupe" src="assets/img/searchicon.svg" alt="Icone de loupe">
             <p class="langages">Langages trouvés</p>
         </div>
-        <div class="zoom gameshow">
+        <div class="zoomall gameshow">
             <p class="textzoom">zoom</p>
             <p class="more">+</p>
             <div class="zoombar"></div>
             <p class="less">_</p>
         </div>
     </section>
+
+
     <!-- MODALES -->
     <div class="modalanswer">
         <div class="answer">
@@ -81,6 +84,7 @@
     <script>
         VanillaCounter();
     </script>
+    <script src="assets/js/wheelzoom.js"></script>
 </body>
 
 </html>

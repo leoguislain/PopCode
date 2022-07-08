@@ -332,6 +332,11 @@ body {
     /* height: 100vh; */
 }
 
+.zoomimg{
+    bottom: 0px!important;
+    left: 0px!important;
+}
+
 .backgroundgame{
     position: absolute;
     object-fit: cover;
@@ -416,7 +421,7 @@ body {
     margin-right: 5px;
 }
 
-.zoom{
+.zoomall{
     position: absolute;
     display: flex;
     align-items: center;
