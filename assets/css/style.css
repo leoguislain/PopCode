@@ -3,6 +3,7 @@ body {
     padding: 0;
     box-sizing: border-box;
     height: 100vh;
+    overflow: hidden;
 }
 
 *{
@@ -332,6 +333,12 @@ body {
     /* height: 100vh; */
 }
 
+.zoom{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
 .zoomimg{
     bottom: 0px!important;
     left: 0px!important;
@@ -433,9 +440,18 @@ body {
 }
 
 .zoombar{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
     background-color: white;
     height: 125px;
     width: 1px;
+}
+
+.zoombarprogress{
+    background-color: #0AEFF7;
+    width: 1px;
+    transition: height .5s;
 }
 
 .more, .less{
