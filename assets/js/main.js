@@ -159,7 +159,9 @@ window.onkeydown = function (event) {
     }
     if (event.key == 'Backspace') {
         answerzone.innerHTML = answerzone.innerHTML.slice(0, -1)
-    } else {
+    }if (event.key == 'Enter') {
+        modalanswer.style = 'display: flex; animation: appear 0.4s alternate;'
+    }else {
         return
     }
 }
