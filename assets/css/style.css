@@ -327,6 +327,19 @@ body {
     }
 }
 
+
+.disappear{
+    animation: disappear 1.3s alternate;
+}
+
+.msgerror{
+    position: absolute;
+    top: 65vh;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
 .game{
     font-family: 'Gotham', sans-serif;
     width: 100%;
@@ -522,4 +535,23 @@ body {
 .answerconsign{
     font-size: 13px;
     letter-spacing: 5px;
+}
+
+.modalegameover{
+    background-color: rgba(0, 0, 0, 0.7);
+    color: rgb(247, 178, 178);
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Commissioner', sans-serif;
+    font-size: 180px;
+    font-weight: 700;
+    display: none;
+    -webkit-text-stroke: 4px;
+    -webkit-text-stroke-color: rgb(255, 0, 0);
+    letter-spacing: 12px;
 }

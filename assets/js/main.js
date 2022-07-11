@@ -121,25 +121,23 @@ function adderror () {
     if (error1 == false & error1 != true) {
         document.querySelector('.error1').style = 'opacity: 1; color: #0AEFF7;'
         error1 = true
-        console.log('erreur1 =' + error1)
         return
     }
     if (error1 == true & error2 == false) {
         document.querySelector('.error2').style = 'opacity:1; color: #0AEFF7;'
         error2 = true
-        console.log('erreur2=' + error2)
         return
     }
     if (error2 == true & error3 == false) {
         document.querySelector('.error3').style = 'opacity: 1; color: #0AEFF7;'
         error3 = true
-        console.log('erreur3=' + error3)
+        document.querySelector('.modalegameover').style = 'display: flex'
         return
     }
 }
 
 // OUVERTURE / FERMETURE MODAL REPONSES
-const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '+', '-', '#']
 var modalanswer = document.querySelector('.modalanswer')
 let gameOn = false
 let answerOn = false
@@ -171,10 +169,17 @@ const languages = ['JavaScript', 'HTML', 'CSS', 'SQL', 'Python', 'Java', 'Bash',
 var myIndex = languages.indexOf(answerzone.innerHTML.toLowerCase())
 let correctanswers = [];
 let languagesrestants = languages
+let errormsg = [`Vous n'avez écrit aucune réponse !`, 'Vous avez déjà trouvé ce langage.']
+let msgerror = document.querySelector('.msgerror')
 
 window.addEventListener('keydown', function (event) {
     if (event.key == 'Enter' & answerOn == true) {
         for (var i = 0; i < languages.length; i++) {
+            if(answerzone.innerHTML == ""){
+                msgerror.innerHTML = errormsg[0]
+                setTimeout(errordisappear, 1500)
+                break
+            }
             if(answerzone.innerHTML.toLowerCase() === languages[i].toLowerCase()) {
                 let answerPosition = languages.indexOf(languages[i])
                 correctanswers.push(answerzone.innerHTML)
@@ -185,8 +190,9 @@ window.addEventListener('keydown', function (event) {
                 break
             }
             if(answerzone.innerHTML.toLowerCase() === correctanswers[i]) {
+                msgerror.innerHTML = errormsg[1]
+                setTimeout(errordisappear, 1500)
                 answerzone.innerHTML = ""
-                modalanswer.style = 'display:none;'
                 console.log('Déjà dans le tableau')
                 break
             }
@@ -200,36 +206,13 @@ window.addEventListener('keydown', function (event) {
     }
 })
 
-// window.addEventListener('keydown', function (event) {
-//     if (event.key == 'Enter' & answerOn == true) {
-//         for (var i = 0; i < languages.length; i++) {
-//             if(correctanswers.includes(answerzone.innerHTML.toLowerCase)) {
-//                 console.log('Déjà dans le tableau')
-//                 break
-//             }
-//             if (answerzone.innerHTML.toLowerCase() === languages[i].toLowerCase()) {
-//                 correctanswers.push(answerzone.innerHTML)
-//                 // languages.pop(i)
-//                 // languagesrestants = languages.splice(myIndex, 1)
-//                 answerzone.innerHTML = ""
-//                 modalanswer.style = 'display:none;'
-//                 answerOn = false
-//                 scoreup()
-//                 console.log(correctanswers)
-//                 break
-//             }
-//             if(i+1 == languages.length) {
-//                 answerzone.innerHTML = ""
-//                 modalanswer.style = 'display:none;'
-//                 answerOn = false
-//                 adderror()
-//             }
-//             if(answerzone.innerHTML.toLowerCase() !== languages[i].toLowerCase() & answerzone.innerHTML.toLowerCase !== correctanswers[i]){
-//                 console.log('Pas dans le tableau');
-//             }
-//         }
-//     }
-// })
+function errordisappear() {
+    msgerror.classList.add('disappear')
+    msgerror.addEventListener('animationend', function() {
+        msgerror.classList.remove('disappear')
+        msgerror.innerHTML = ''
+    })
+}
 
 // AUGMENTATION SCORE EN CAS DE BONNE REPONSE
 function scoreup() {
