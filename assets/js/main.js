@@ -241,6 +241,11 @@ function scoreup() {
     }
 }
 
+// DIMINUTION SCORE EN CAS DE RESET
+function scorereset() {
+    document.querySelector('.numberscore').innerHTML = "00"
+}
+
 // BARRE DE ZOOM
 let bg = document.querySelector('.backgroundgame')
 let zoombarprogress = document.querySelector('.zoombarprogress')
@@ -258,6 +263,7 @@ let restart = document.querySelector('.restart')
 let modalegameover = document.querySelector('.modalegameover')
 restart.addEventListener('click', function () {
     removeerrors()
+    scorereset()
     modalegameover.style = 'animation: disappear 1.3s alternate;'
     // modalegameover.addEventListener('animationend', function() {
     //     modalegameover.style = 'display: none;'
