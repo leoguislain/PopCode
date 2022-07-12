@@ -116,8 +116,8 @@ let error1 = false
 let error2 = false
 let error3 = false
 
-// FONCTION D'ERREURS A MODIFIER
-function adderror () {
+// FONCTION D'ERREURS
+function adderror() {
     if (error1 == false & error1 != true) {
         document.querySelector('.error1').style = 'opacity: 1; color: #0AEFF7;'
         error1 = true
@@ -134,6 +134,19 @@ function adderror () {
         document.querySelector('.modalegameover').style = 'display: flex'
         return
     }
+}
+
+function removeerrors() {
+    console.log('lancement fonction clean error');
+    if (error1 == true & error2 == true & error3 == true) {
+        error1 = false
+        error2 = false
+        error3 = false
+        document.querySelector('.error1').style = 'opacity: 0.3; color: white;'
+        document.querySelector('.error2').style = 'opacity: 0.3; color: white;'
+        document.querySelector('.error3').style = 'opacity: 0.3; color: white;'
+    }
+    // if (error1 == false & )
 }
 
 // OUVERTURE / FERMETURE MODAL REPONSES
@@ -159,9 +172,10 @@ window.onkeydown = function (event) {
     }
     if (event.key == 'Backspace') {
         answerzone.innerHTML = answerzone.innerHTML.slice(0, -1)
-    }if (event.key == 'Enter') {
+    }
+    if (event.key == 'Enter') {
         modalanswer.style = 'display: flex; animation: appear 0.4s alternate;'
-    }else {
+    } else {
         return
     }
 }
@@ -177,12 +191,12 @@ let msgerror = document.querySelector('.msgerror')
 window.addEventListener('keydown', function (event) {
     if (event.key == 'Enter' & answerOn == true) {
         for (var i = 0; i < languages.length; i++) {
-            if(answerzone.innerHTML == ""){
+            if (answerzone.innerHTML == "") {
                 msgerror.innerHTML = errormsg[0]
                 setTimeout(errordisappear, 1500)
                 break
             }
-            if(answerzone.innerHTML.toLowerCase() === languages[i].toLowerCase()) {
+            if (answerzone.innerHTML.toLowerCase() === languages[i].toLowerCase()) {
                 let answerPosition = languages.indexOf(languages[i])
                 correctanswers.push(answerzone.innerHTML)
                 languages.splice(answerPosition, 1)
@@ -191,14 +205,14 @@ window.addEventListener('keydown', function (event) {
                 scoreup()
                 break
             }
-            if(answerzone.innerHTML.toLowerCase() === correctanswers[i]) {
+            if (answerzone.innerHTML.toLowerCase() === correctanswers[i]) {
                 msgerror.innerHTML = errormsg[1]
                 setTimeout(errordisappear, 1500)
                 answerzone.innerHTML = ""
                 console.log('Déjà dans le tableau')
                 break
             }
-            if(i+1 == languages.length) {
+            if (i + 1 == languages.length) {
                 answerzone.innerHTML = ""
                 modalanswer.style = 'display:none;'
                 answerOn = false
@@ -210,7 +224,7 @@ window.addEventListener('keydown', function (event) {
 
 function errordisappear() {
     msgerror.classList.add('disappear')
-    msgerror.addEventListener('animationend', function() {
+    msgerror.addEventListener('animationend', function () {
         msgerror.classList.remove('disappear')
         msgerror.innerHTML = ''
     })
@@ -220,7 +234,7 @@ function errordisappear() {
 function scoreup() {
     if (correctanswers.length < 10) {
         document.querySelector('.numberscore').innerHTML = "0" + correctanswers.length.toString()
-    } else if (correctanswers.length < languages.length+1) {
+    } else if (correctanswers.length < languages.length + 1) {
         document.querySelector('.numberscore').innerHTML = correctanswers.length.toString()
     } else {
         return
@@ -231,10 +245,22 @@ function scoreup() {
 let bg = document.querySelector('.backgroundgame')
 let zoombarprogress = document.querySelector('.zoombarprogress')
 
-bg.addEventListener('wheel', function() {
-    zoombarprogress.style = 'height: '+ bg.dataset.scale*10 +'%'
+bg.addEventListener('wheel', function () {
+    zoombarprogress.style = 'height: ' + bg.dataset.scale * 10 + '%'
 })
 
-bg.addEventListener('click', function() {
-    zoombarprogress.style = 'height: '+ bg.dataset.scale*10 +'%'
+bg.addEventListener('click', function () {
+    zoombarprogress.style = 'height: ' + bg.dataset.scale * 10 + '%'
+})
+
+// FONCTION DE REDEMARRAGE DU JEU
+let restart = document.querySelector('.restart')
+let modalegameover = document.querySelector('.modalegameover')
+restart.addEventListener('click', function () {
+    removeerrors()
+    modalegameover.style = 'animation: disappear 1.3s alternate;'
+    // modalegameover.addEventListener('animationend', function() {
+    //     modalegameover.style = 'display: none;'
+    // })
+
 })
