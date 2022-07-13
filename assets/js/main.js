@@ -246,6 +246,14 @@ function scorereset() {
     document.querySelector('.numberscore').innerHTML = "00"
 }
 
+// RESET DES TABLEAUX
+function resetboard () {
+    for (let i = 0; i < correctanswers.length; i++) {
+        // let resetPosition = languages.indexOf(languages[i])
+        // languages.push(answerzone.innerHTML)
+        // correctanswers.splice(resetPosition, 1)
+    }
+}
 // BARRE DE ZOOM
 let bg = document.querySelector('.backgroundgame')
 let zoombarprogress = document.querySelector('.zoombarprogress')
