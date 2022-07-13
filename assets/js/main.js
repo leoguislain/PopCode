@@ -181,7 +181,7 @@ window.onkeydown = function (event) {
 }
 
 // VERIFICATEUR DE BONNES REPONSES
-const languages = ['JavaScript', 'HTML', 'CSS', 'SQL', 'Python', 'Java', 'Bash', 'PowerShell', 'C#', 'PHP', 'C++', 'TypeScript', 'C', 'Ruby', 'Go', 'Assembly', 'Swift', 'Kotlin', 'R', 'VBA', 'Objective-C', 'Scala', 'Rust', 'Dart', 'Elixir', 'Clojure', 'WebAssembly']
+let languages = ['JavaScript', 'HTML', 'CSS', 'SQL', 'Python', 'Java', 'Bash', 'PowerShell', 'C#', 'PHP', 'C++', 'TypeScript', 'C', 'Ruby', 'Go', 'Assembly', 'Swift', 'Kotlin', 'R', 'VBA', 'Objective-C', 'Scala', 'Rust', 'Dart', 'Elixir', 'Clojure', 'WebAssembly']
 var myIndex = languages.indexOf(answerzone.innerHTML.toLowerCase())
 let correctanswers = [];
 let languagesrestants = languages
@@ -247,13 +247,12 @@ function scorereset() {
 }
 
 // RESET DES TABLEAUX
-function resetboard () {
-    for (let i = 0; i < correctanswers.length; i++) {
-        // let resetPosition = languages.indexOf(languages[i])
-        // languages.push(answerzone.innerHTML)
-        // correctanswers.splice(resetPosition, 1)
-    }
+function resetarray () {
+    languages = languages.concat(correctanswers)
+    correctanswers.splice(0, correctanswers.length)
+    scoreup()
 }
+
 // BARRE DE ZOOM
 let bg = document.querySelector('.backgroundgame')
 let zoombarprogress = document.querySelector('.zoombarprogress')
@@ -272,6 +271,7 @@ let modalegameover = document.querySelector('.modalegameover')
 restart.addEventListener('click', function () {
     removeerrors()
     scorereset()
+    resetarray()
     modalegameover.style = 'animation: disappear 1.3s alternate;'
     // modalegameover.addEventListener('animationend', function() {
     //     modalegameover.style = 'display: none;'
