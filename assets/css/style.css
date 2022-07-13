@@ -553,6 +553,29 @@ body {
     display: none;
 }
 
+.modalewin{
+    background-color: rgba(0, 0, 0, 0.7);
+    color: rgb(247, 178, 178);
+    position: absolute;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Commissioner', sans-serif;
+    font-weight: 700;
+    display: none;
+}
+
+.win{
+    -webkit-text-stroke: 4px;
+    -webkit-text-stroke-color: rgb(3, 175, 3);
+    letter-spacing: 12px;
+    font-size: 180px;
+}
+
 .gameover{
     -webkit-text-stroke: 4px;
     -webkit-text-stroke-color: rgb(255, 0, 0);

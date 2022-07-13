@@ -231,12 +231,17 @@ function errordisappear() {
 }
 
 // AUGMENTATION SCORE EN CAS DE BONNE REPONSE
+let modalewin = document.querySelector('.modalewin')
 function scoreup() {
     if (correctanswers.length < 10) {
         document.querySelector('.numberscore').innerHTML = "0" + correctanswers.length.toString()
-    } else if (correctanswers.length < languages.length + 1) {
+    } else if (correctanswers.length < languages.length + correctanswers.length +1) {
         document.querySelector('.numberscore').innerHTML = correctanswers.length.toString()
-    } else {
+    } else if (correctanswers.lenght == languages.length + correctanswers.length) {
+        modalewin.style = 'display:flex;'
+    }
+    else
+    {
         return
     }
 }
@@ -268,13 +273,24 @@ bg.addEventListener('click', function () {
 // FONCTION DE REDEMARRAGE DU JEU
 let restart = document.querySelector('.restart')
 let modalegameover = document.querySelector('.modalegameover')
+let win = false
+let lose = false
 restart.addEventListener('click', function () {
     removeerrors()
     scorereset()
     resetarray()
-    modalegameover.style = 'animation: disappear 1.3s alternate;'
-    // modalegameover.addEventListener('animationend', function() {
-    //     modalegameover.style = 'display: none;'
-    // })
+    lose = true
+    if (lose == true){
+        modalegameover.style = 'display: flex; animation: disappear 0.6s alternate;'
+        modalegameover.addEventListener('animationend', function() {
+            modalegameover.style = 'display: none;'
+        }) 
+    }
+    else {
+        modalewin.style = 'display: flex; animation: disappear 0.6s alternate;'
+        modalewin.addEventListener('animationend', function () {
+            modalewin.style = 'display: none;'
+        })
+    }
 
 })
