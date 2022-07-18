@@ -6,11 +6,12 @@ let mentions = document.querySelector('.legals')
 let clicktostart = document.querySelector('.clicktostart')
 let game = document.querySelector('.game')
 let gameshow = document.querySelector('.gameshow')
+let resize = false
 
 waitingscreen.style = 'display: none;'
 game.style = 'display: flex;'
 
-var screensize = window.matchMedia("(min-width: 1200px)")
+var screensize = window.matchMedia("(min-width: 1000px)")
 checksize(screensize)
 screensize.addEventListener('change', checksize)
 
@@ -38,6 +39,38 @@ function checksize(screensize) {
         console.log(screensize)
     }
 }
+
+// function checksize(screensize) {
+//     if (screensize.matches & resize == false) {
+//         resize = true
+//         setTimeout(removeanimation, 4500)
+//         setTimeout(switchoffO, 5600)
+//         setTimeout(switchoffP2, 5800)
+//         setTimeout(switchoffE, 6200)
+//         setTimeout(switchoffAll, 6500)
+//         setTimeout(switchPage, 7100)
+//         setTimeout(launchSite, 8200)
+//         setTimeout(launchClickToStart, 8800)
+//         console.log(screensize)
+//     }
+//     if (screensize.matches & resize == true) {
+//         document.querySelector('.msgresize').style = 'display: none;'
+//         launchSite()
+//         launchClickToStart()
+//     } 
+//     else {
+//         loader.style = 'display:none;'
+//         titre.style = 'display:none;'
+//         imgbug.style = 'display:none;'
+//         clicktostart.style = 'display:none;'
+//         game.style = 'display:none;'
+//         waitingscreen.style = 'display: flex;'
+//         document.querySelector('.logo').style = 'position: relative; width: 40%'
+//         document.querySelector('.msgresize').classList.remove('resizemsg')
+//         document.querySelector('.msgresize').style = 'font-size: 7vw; display: flex; text-align: center'
+//         console.log(screensize)
+//     }
+// }
 
 // FIN DE L'EFFET DEMARRAGE NEON
 function removeanimation() {
@@ -190,6 +223,8 @@ let msgerror = document.querySelector('.msgerror')
 
 window.addEventListener('keydown', function (event) {
     if (event.key == 'Enter' & answerOn == true) {
+        console.log('checkWin');
+        checkWin ()
         for (var i = 0; i < languages.length; i++) {
             if (answerzone.innerHTML == "") {
                 msgerror.innerHTML = errormsg[0]
@@ -237,9 +272,7 @@ function scoreup() {
         document.querySelector('.numberscore').innerHTML = "0" + correctanswers.length.toString()
     } else if (correctanswers.length < languages.length + correctanswers.length +1) {
         document.querySelector('.numberscore').innerHTML = correctanswers.length.toString()
-    } else if (correctanswers.lenght == languages.length + correctanswers.length) {
-        modalewin.style = 'display:flex;'
-    }
+    } 
     else
     {
         return
@@ -279,18 +312,29 @@ restart.addEventListener('click', function () {
     removeerrors()
     scorereset()
     resetarray()
-    lose = true
-    if (lose == true){
         modalegameover.style = 'display: flex; animation: disappear 0.6s alternate;'
         modalegameover.addEventListener('animationend', function() {
             modalegameover.style = 'display: none;'
         }) 
+})
+
+document.querySelector('.restartwin').addEventListener('click', function() {
+    removeerrors()
+    scorereset()
+    resetarray()
+    modalewin.style = 'display: flex; animation: disappear 0.6s alternate;'
+    modalewin.addEventListener('animationend', function () {
+        modalewin.style = 'display: none;'
+    })
+})
+
+// AFFICHAGE MODALE VICTOIRE
+function checkWin () {
+    if (correctanswers.length >= 2-1) {
+        modalewin.style = 'display: flex;'
+        console.log('WIN');
     }
     else {
-        modalewin.style = 'display: flex; animation: disappear 0.6s alternate;'
-        modalewin.addEventListener('animationend', function () {
-            modalewin.style = 'display: none;'
-        })
+        return
     }
-
-})
+}
