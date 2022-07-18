@@ -6,7 +6,7 @@ body {
     overflow: hidden;
 }
 
-*{
+* {
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
@@ -187,7 +187,7 @@ body {
     font-size: 12px;
 }
 
-.legalsgame{
+.legalsgame {
     display: flex;
     position: absolute;
     bottom: 0;
@@ -328,11 +328,11 @@ body {
 }
 
 
-.disappear{
+.disappear {
     animation: disappear 1.3s alternate;
 }
 
-.msgerror{
+.msgerror {
     position: absolute;
     top: 65vh;
     left: 0;
@@ -340,45 +340,45 @@ body {
     text-align: center;
 }
 
-.game{
+.game {
     font-family: 'Gotham', sans-serif;
     width: 100%;
     /* height: 100vh; */
 }
 
-.zoom{
+.zoom {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
 }
 
-.zoomimg{
-    bottom: 0px!important;
-    left: 0px!important;
+.zoomimg {
+    bottom: 0px !important;
+    left: 0px !important;
 }
 
-.backgroundgame{
+.backgroundgame {
     position: absolute;
     object-fit: fill;
     width: 100vw;
     height: 100vh;
 }
 
-.petitlogo{
+.petitlogo {
     height: 150px;
     position: absolute;
     right: 30px;
     top: 25px;
 }
 
-.score{
+.score {
     display: flex;
     position: absolute;
     top: 23px;
     left: 20px;
 }
 
-.textscore{
+.textscore {
     font-family: 'GothamLight', sans-serif;
     text-transform: uppercase;
     transform: rotate(-90deg);
@@ -389,29 +389,31 @@ body {
     padding-bottom: 3px;
 }
 
-.errors{
+.errors {
     margin-top: 0px;
     display: flex;
     justify-content: space-between;
     color: white;
 }
 
-.error1{
-    opacity: 0.3;
-}
-.error2{
-    opacity: 0.3;
-}
-.error3{
+.error1 {
     opacity: 0.3;
 }
 
-.reponses{
+.error2 {
+    opacity: 0.3;
+}
+
+.error3 {
+    opacity: 0.3;
+}
+
+.reponses {
     margin-bottom: 3px;
     text-align: center;
 }
 
-.scorehorizontal{
+.scorehorizontal {
     font-size: 17px;
     position: absolute;
     top: 0px;
@@ -422,7 +424,7 @@ body {
     width: 76px;
 }
 
-.owned{
+.owned {
     font-family: 'GothamLight', sans-serif;
     color: white;
     display: flex;
@@ -437,11 +439,11 @@ body {
 
 }
 
-.loupe{
+.loupe {
     margin-right: 5px;
 }
 
-.zoomall{
+.zoomall {
     position: absolute;
     display: flex;
     align-items: center;
@@ -452,7 +454,7 @@ body {
     font-size: 12px;
 }
 
-.zoombar{
+.zoombar {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
@@ -461,43 +463,44 @@ body {
     width: 1px;
 }
 
-.zoombarprogress{
+.zoombarprogress {
     background-color: #0AEFF7;
     width: 1px;
     transition: height .5s;
 }
 
-.more, .less{
+.more,
+.less {
     margin: 6px;
 }
 
-.less{
+.less {
     margin-top: 0px;
 }
 
-.textzoom{
+.textzoom {
     transform: rotate(-90deg);
     color: #0AEFF7;
     font-size: 10px;
 }
 
-.gameshow{
+.gameshow {
     display: none;
 }
 
-.resizemsgshow{
+.resizemsgshow {
     font-size: 7vw;
     text-align: center;
     display: flex;
 }
 
-.resizemsg{
+.resizemsg {
     font-size: 7vw;
     text-align: center;
     display: none;
 }
 
-.modalanswer{
+.modalanswer {
     height: 100vh;
     width: 100vw;
     position: absolute;
@@ -514,7 +517,7 @@ body {
     text-align: center;
 }
 
-.answerzone{
+.answerzone {
     width: 100%;
     height: 10vh;
     font-size: 82px;
@@ -528,16 +531,16 @@ body {
     text-transform: uppercase;
 }
 
-.answerzone:focus-visible{
+.answerzone:focus-visible {
     outline: none;
 }
 
-.answerconsign{
+.answerconsign {
     font-size: 13px;
     letter-spacing: 5px;
 }
 
-.modalegameover{
+.modalegameover {
     background-color: rgba(0, 0, 0, 0.7);
     color: rgb(247, 178, 178);
     position: absolute;
@@ -553,7 +556,7 @@ body {
     display: none;
 }
 
-.modalewin{
+.modalewin {
     background-color: rgba(0, 0, 0, 0.7);
     color: rgb(199, 219, 197);
     position: absolute;
@@ -569,14 +572,14 @@ body {
     display: none;
 }
 
-.win{
+.win {
     -webkit-text-stroke: 4px;
     -webkit-text-stroke-color: rgb(3, 175, 3);
     letter-spacing: 12px;
     font-size: 180px;
 }
 
-.gameover{
+.gameover {
     -webkit-text-stroke: 4px;
     -webkit-text-stroke-color: rgb(255, 0, 0);
     letter-spacing: 12px;
@@ -609,7 +612,7 @@ body {
     animation: starting 0.6s infinite alternate;
 }
 
-.modaledesc{
+.modaledesc {
     background-color: rgba(0, 0, 0, 0.7);
     height: 100vh;
     width: 100vw;
@@ -624,22 +627,55 @@ body {
     padding-left: 80px;
 }
 
-.languagename{
-    font-size: 90px;
+.languagename {
+    font-size: 84px;
     margin: 0;
 }
 
-.languagelogo{
-    width: 434px;
+.titleclose {
+    height: 100px;
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 50px 0;
+    text-transform: uppercase;
 }
 
-.ldesc{
-    width: 41%;
+.languagelogo {
+    height: 100%;
+    object-fit: contain;
+}
+
+.ldesc {
     margin-left: 50px;
     font-size: 13px;
+    overflow: auto;
+    line-height: 20px;
 }
 
-.logodesc{
+.logodesc {
     display: flex;
     line-height: 28px;
+    width: 60vw;
+    height: 450px;
+}
+
+.ldesc::-webkit-scrollbar {
+    width: 4px;
+}
+
+.ldesc::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.219);
+    border-radius: 20px;
+}
+
+.ldesc::-webkit-scrollbar-thumb {
+    background-color: #0AEFF7;
+    border-radius: 20px;
+    padding: 1px;
+}
+
+.closedescmodale{
+    cursor: pointer;
 }

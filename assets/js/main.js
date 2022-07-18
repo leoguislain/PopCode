@@ -338,3 +338,13 @@ function checkWin () {
         return
     }
 }
+
+// FERMETURE MODAL DESCRIPTIVE
+let closedesc = document.querySelector('.closedescmodale')
+let modaledesc = document.querySelector('.modaledesc')
+closedesc.addEventListener('click', function () {
+    modaledesc.style = 'display: flex; animation: disappear 0.6s alternate;'
+    modaledesc.addEventListener('animationend', function() {
+        modaledesc.style = 'display: none;'
+    }) 
+})
