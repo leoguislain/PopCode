@@ -224,7 +224,7 @@ let msgerror = document.querySelector('.msgerror')
 window.addEventListener('keydown', function (event) {
     if (event.key == 'Enter' & answerOn == true) {
         console.log('checkWin');
-        checkWin ()
+        checkWin()
         for (var i = 0; i < languages.length; i++) {
             if (answerzone.innerHTML == "") {
                 msgerror.innerHTML = errormsg[0]
@@ -232,6 +232,7 @@ window.addEventListener('keydown', function (event) {
                 break
             }
             if (answerzone.innerHTML.toLowerCase() === languages[i].toLowerCase()) {
+                showLanguage()
                 let answerPosition = languages.indexOf(languages[i])
                 correctanswers.push(answerzone.innerHTML)
                 languages.splice(answerPosition, 1)
@@ -267,14 +268,13 @@ function errordisappear() {
 
 // AUGMENTATION SCORE EN CAS DE BONNE REPONSE
 let modalewin = document.querySelector('.modalewin')
+
 function scoreup() {
     if (correctanswers.length < 10) {
         document.querySelector('.numberscore').innerHTML = "0" + correctanswers.length.toString()
-    } else if (correctanswers.length < languages.length + correctanswers.length +1) {
+    } else if (correctanswers.length < languages.length + correctanswers.length + 1) {
         document.querySelector('.numberscore').innerHTML = correctanswers.length.toString()
-    } 
-    else
-    {
+    } else {
         return
     }
 }
@@ -285,7 +285,7 @@ function scorereset() {
 }
 
 // RESET DES TABLEAUX
-function resetarray () {
+function resetarray() {
     languages = languages.concat(correctanswers)
     correctanswers.splice(0, correctanswers.length)
     scoreup()
@@ -312,13 +312,13 @@ restart.addEventListener('click', function () {
     removeerrors()
     scorereset()
     resetarray()
-        modalegameover.style = 'display: flex; animation: disappear 0.6s alternate;'
-        modalegameover.addEventListener('animationend', function() {
-            modalegameover.style = 'display: none;'
-        }) 
+    modalegameover.style = 'display: flex; animation: disappear 0.6s alternate;'
+    modalegameover.addEventListener('animationend', function () {
+        modalegameover.style = 'display: none;'
+    })
 })
 
-document.querySelector('.restartwin').addEventListener('click', function() {
+document.querySelector('.restartwin').addEventListener('click', function () {
     removeerrors()
     scorereset()
     resetarray()
@@ -329,22 +329,40 @@ document.querySelector('.restartwin').addEventListener('click', function() {
 })
 
 // AFFICHAGE MODALE VICTOIRE
-function checkWin () {
-    if (correctanswers.length >= 2-1) {
+function checkWin() {
+    if (correctanswers.length >= languages.length + correctanswers.length) {
         modalewin.style = 'display: flex;'
         console.log('WIN');
-    }
-    else {
+    } else {
         return
     }
 }
 
-// FERMETURE MODAL DESCRIPTIVE
+
+
+// AFFICHAGE DESCRIPTION LANGUAGES
+async function showLanguage() {
+    let reponses = await fetch("assets/js/languages.json")
+    let data = await reponses.json()
+    console.log(data.languages)
+    const index = data.languages.langage.findIndex((object) =>
+    {
+        return object.name === correctanswers[correctanswers.length - 1]
+    })
+    document.querySelector('.languagename').innerHTML = data.languages.langage[index].name
+    document.querySelector('.ldesc').innerHTML = data.languages.langage[index].description
+    document.querySelector('.languagelogo').src = data.languages.langage[index].picture
+    document.querySelector('.languagelogo').alt = 'Logo '+ data.languages.langage[index].name
+    console.log(index);
+    document.querySelector('.modaledesc').style = 'display : flex;'
+}
+
+// FERMETURE MODALE DESCRIPTIVE
 let closedesc = document.querySelector('.closedescmodale')
 let modaledesc = document.querySelector('.modaledesc')
 closedesc.addEventListener('click', function () {
     modaledesc.style = 'display: flex; animation: disappear 0.6s alternate;'
-    modaledesc.addEventListener('animationend', function() {
+    modaledesc.addEventListener('animationend', function () {
         modaledesc.style = 'display: none;'
-    }) 
+    })
 })

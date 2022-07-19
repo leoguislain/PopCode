@@ -621,7 +621,7 @@ body {
     left: 0;
     color: white;
     font-family: 'Gotham', sans-serif;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     padding-left: 80px;
