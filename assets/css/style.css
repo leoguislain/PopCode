@@ -338,6 +338,7 @@ body {
     left: 0;
     width: 100%;
     text-align: center;
+    color: #0AEFF7;
 }
 
 .game {
@@ -676,6 +677,47 @@ body {
     padding: 1px;
 }
 
-.closedescmodale{
+.closedescmodale {
     cursor: pointer;
+}
+
+.closedesc {
+    width: 60vw;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.closedesc>p {
+    margin: 0px 10px;
+}
+
+input[type=checkbox] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+}
+
+input[type=checkbox] {
+    -border-radius: 4px;
+    height: 15px;
+    width: 15px;
+    background: transparent;
+    border: 1px solid #FFAAFF;
+    margin: 3px;
+}
+
+input[type="checkbox"]:checked {
+    background: transparent;
+    margin: 0px;
+    position: relative;
+    margin: 3px;
+}
+
+input[type="checkbox"]:before {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 6px;
+    color: #FFAAFF;
+    position: absolute;
 }
