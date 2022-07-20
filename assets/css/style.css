@@ -202,6 +202,7 @@ body {
     text-decoration: none;
     color: white;
     border-bottom: solid 1px;
+    cursor: pointer;
 }
 
 .mentions:hover {
@@ -773,7 +774,7 @@ input[type="checkbox"]:checked:before {
     text-transform: uppercase;
 }
 
-.closeowned {
+.close {
     position: absolute;
     top: 20px;
     right: 20px;
@@ -801,4 +802,44 @@ input[type="checkbox"]:checked:before {
     font-size: 70px;
     text-align: center;
     font-family: 'Gotham', sans-serif;
+}
+
+.modalelegals{
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.mentionslegales{
+    color: white;
+    width: 60%;
+    height: 60vh;
+    overflow: auto;
+    font-family: 'Gotham', sans-serif;
+}
+
+.link{
+    color: #FFAAFF;
+}
+
+.mentionslegales::-webkit-scrollbar {
+    width: 4px;
+}
+
+.mentionslegales::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.219);
+    border-radius: 20px;
+}
+
+.mentionslegales::-webkit-scrollbar-thumb {
+    background-color: #0AEFF7;
+    border-radius: 20px;
+    padding: 1px;
 }

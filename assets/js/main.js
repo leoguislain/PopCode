@@ -386,6 +386,27 @@ async function showLanguage() {
     }
 }
 
+//AFFICHAGE MENTIONS LEGALES
+let legals = document.querySelectorAll('.mentions')
+let modalelegals = document.querySelector('.modalelegals')
+legals.forEach(function(legal) {
+    legal.addEventListener('click',async function() {
+        console.log('legales')
+        let reponses = await fetch("assets/js/languages.json")
+        let data = await reponses.json()
+        document.querySelector('.mentionslegales').innerHTML = data.legals.legal[0].content
+        modalelegals.style = 'display: flex;'
+        document.querySelector('.closelegals').style = 'display: flex;'
+    })
+})
+
+document.querySelector('.closelegals').addEventListener('click', function () {
+    modalelegals.style = 'display: flex; animation: disappear 0.6s alternate;'
+    modalelegals.addEventListener('animationend', function () {
+        modalelegals.style = 'display: none;'
+    })
+})
+
 // FERMETURE MODALE DESCRIPTIVE
 let closedesc = document.querySelector('.closedescmodale')
 let modaledesc = document.querySelector('.modaledesc')
