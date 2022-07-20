@@ -238,6 +238,7 @@ window.addEventListener('keydown', function (event) {
                 languages.splice(answerPosition, 1)
                 answerzone.innerHTML = ""
                 modalanswer.style = 'display:none;'
+                addOwned()
                 scoreup()
                 break
             }
@@ -338,23 +339,35 @@ function checkWin() {
     }
 }
 
-
-
 // AFFICHAGE DESCRIPTION LANGUAGES
+let input = document.querySelector('input')
 async function showLanguage() {
-    let reponses = await fetch("assets/js/languages.json")
-    let data = await reponses.json()
-    console.log(data.languages)
-    const index = data.languages.langage.findIndex((object) =>
-    {
-        return object.name === correctanswers[correctanswers.length - 1]
-    })
-    document.querySelector('.languagename').innerHTML = data.languages.langage[index].name
-    document.querySelector('.ldesc').innerHTML = data.languages.langage[index].description
-    document.querySelector('.languagelogo').src = data.languages.langage[index].picture
-    document.querySelector('.languagelogo').alt = 'Logo '+ data.languages.langage[index].name
-    console.log(index);
-    document.querySelector('.modaledesc').style = 'display : flex;'
+    if (input.checked) {
+        let reponses = await fetch("assets/js/languages.json")
+        let data = await reponses.json()
+        console.log(data.languages)
+        const index = data.languages.langage.findIndex((object) => {
+            return object.name === correctanswers[correctanswers.length - 1]
+        })
+        document.querySelector('.languagename').innerHTML = data.languages.langage[index].name
+        document.querySelector('.ldesc').innerHTML = data.languages.langage[index].description
+        document.querySelector('.languagelogo').src = data.languages.langage[index].picture
+        document.querySelector('.languagelogo').alt = 'Logo ' + data.languages.langage[index].name
+        console.log(index);
+    } else {
+        let reponses = await fetch("assets/js/languages.json")
+        let data = await reponses.json()
+        console.log(data.languages)
+        const index = data.languages.langage.findIndex((object) => {
+            return object.name === correctanswers[correctanswers.length - 1]
+        })
+        document.querySelector('.languagename').innerHTML = data.languages.langage[index].name
+        document.querySelector('.ldesc').innerHTML = data.languages.langage[index].description
+        document.querySelector('.languagelogo').src = data.languages.langage[index].picture
+        document.querySelector('.languagelogo').alt = 'Logo ' + data.languages.langage[index].name
+        console.log(index);
+        document.querySelector('.modaledesc').style = 'display : flex;'
+    }
 }
 
 // FERMETURE MODALE DESCRIPTIVE
@@ -364,5 +377,37 @@ closedesc.addEventListener('click', function () {
     modaledesc.style = 'display: flex; animation: disappear 0.6s alternate;'
     modaledesc.addEventListener('animationend', function () {
         modaledesc.style = 'display: none;'
+    })
+})
+
+//LANGAGES TROUVES
+let owned = document.querySelector('.owned')
+let modaleowned = document.querySelector('.modaleowned')
+let closeowned = document.querySelector('.closeowned')
+
+owned.addEventListener('click', function () {
+    modaleowned.style = 'display: flex;'
+    closeowned.style = 'display: flex;'
+})
+
+let toShow = ''
+async function addOwned() {
+    let reponses = await fetch("assets/js/languages.json")
+    let data = await reponses.json()
+    console.log(data.languages)
+    const indexOwned = data.languages.langage.findIndex((object) => {
+        return object.name === correctanswers[correctanswers.length - 1]
+    })
+    toShow +=
+    '<div class="card"><img src="'+data.languages.langage[indexOwned].picture+'" alt="Logo de '+data.languages.langage[indexOwned].name+'" class="ownedlogo"><p class="ownedtitle">'+data.languages.langage[indexOwned].name+'</p></div>'
+    modaleowned.innerHTML = toShow
+}
+
+closeowned.addEventListener('click', function () {
+    modaleowned.style = 'display: flex; animation: disappear 0.6s alternate;'
+    closeowned.style = 'display: flex; animation: disappear 0.6s alternate;'
+    modaleowned.addEventListener('animationend', function () {
+        modaleowned.style = 'display: none;'
+        closeowned.style = 'display: none;'
     })
 })

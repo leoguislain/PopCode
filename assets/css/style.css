@@ -193,6 +193,7 @@ body {
     bottom: 0;
     right: 0;
     font-size: 12px;
+    z-index: 9;
 }
 
 .mentions {
@@ -437,7 +438,7 @@ body {
     letter-spacing: 2px;
     border: solid 1px white;
     padding: 0px 12px 0px 10px;
-
+    cursor: pointer;
 }
 
 .loupe {
@@ -691,33 +692,86 @@ body {
     margin: 0px 10px;
 }
 
-input[type=checkbox] {
+input[type="checkbox"] {
     -webkit-appearance: none;
     -moz-appearance: none;
     -ms-appearance: none;
-}
-
-input[type=checkbox] {
-    -border-radius: 4px;
     height: 15px;
     width: 15px;
     background: transparent;
     border: 1px solid #FFAAFF;
-    margin: 3px;
 }
 
 input[type="checkbox"]:checked {
     background: transparent;
-    margin: 0px;
     position: relative;
-    margin: 3px;
 }
 
-input[type="checkbox"]:before {
+input[type="checkbox"]:checked:before {
     content: '';
     display: block;
-    width: 6px;
-    height: 6px;
-    color: #FFAAFF;
+    background-color: #FFAAFF;
+    width: 7px;
+    height: 7px;
+    top: 3px;
+    left: 3px;
     position: absolute;
+}
+
+.modaleowned{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.cardcontainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 126px;
+    height: 190px;
+    border: 2px solid #FFAAFF;
+    border-radius: 10px;
+    margin: 30px 15px;
+}
+
+.card:hover{
+    cursor: pointer;
+}
+
+.ownedlogo {
+    width: 120px;
+    height: 120px;
+    margin: 3px 0;
+}
+
+.ownedtitle{
+    color: white;
+    font-family: 'Gotham', sans-serif;
+    height: 100%;
+    font-size: 20px;
+    margin: 18px 0px;
+    text-transform: uppercase;
+}
+
+.closeowned {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: none;
+    cursor: pointer;
 }
