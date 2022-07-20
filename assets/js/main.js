@@ -218,7 +218,9 @@ let languages = ['JavaScript', 'HTML', 'CSS', 'SQL', 'Python', 'Java', 'Bash', '
 var myIndex = languages.indexOf(answerzone.innerHTML.toLowerCase())
 let correctanswers = [];
 let languagesrestants = languages
-let errormsg = [`Vous n'avez écrit aucune réponse !`, 'Vous avez déjà trouvé ce langage.']
+let errormsg = [`Tu n'as écrit aucune réponse !`, 'Tu as déjà trouvé ce langage.']
+let alertmsg = document.querySelector('.alertmsg')
+let alert = [`Tu as trouvé un langage !`, `Tu t'es trompé(e)`]
 let msgerror = document.querySelector('.msgerror')
 
 window.addEventListener('keydown', function (event) {
@@ -232,12 +234,15 @@ window.addEventListener('keydown', function (event) {
                 break
             }
             if (answerzone.innerHTML.toLowerCase() === languages[i].toLowerCase()) {
-                showLanguage()
+                setTimeout(showLanguage, 1500)
                 let answerPosition = languages.indexOf(languages[i])
                 correctanswers.push(answerzone.innerHTML)
                 languages.splice(answerPosition, 1)
                 answerzone.innerHTML = ""
                 modalanswer.style = 'display:none;'
+                alertmsg.style = 'display: flex; color: #0AEFF7; -webkit-text-stroke-color: #579BFE; -webkit-text-stroke: 2px;'
+                alertmsg.innerHTML = alert[0]
+                setTimeout(alertDisappear, 1500)
                 addOwned()
                 scoreup()
                 break
@@ -252,12 +257,23 @@ window.addEventListener('keydown', function (event) {
             if (i + 1 == languages.length) {
                 answerzone.innerHTML = ""
                 modalanswer.style = 'display:none;'
+                alertmsg.style = 'display: flex; color: rgb(247, 178, 178); -webkit-text-stroke-color: rgb(255, 0, 0); -webkit-text-stroke: 2px;'
+                alertmsg.innerHTML = alert[1]
+                setTimeout(alertDisappear, 1500)
                 answerOn = false
                 adderror()
             }
         }
     }
 })
+
+function alertDisappear() {
+    alertmsg.classList.add('disappear')
+    alertmsg.addEventListener('animationend', function () {
+        alertmsg.classList.remove('disappear')
+        alertmsg.innerHTML = ''
+    })
+}
 
 function errordisappear() {
     msgerror.classList.add('disappear')
@@ -388,6 +404,9 @@ let closeowned = document.querySelector('.closeowned')
 owned.addEventListener('click', function () {
     modaleowned.style = 'display: flex;'
     closeowned.style = 'display: flex;'
+    if (correctanswers.length == 0) {
+        document.querySelector('.empty').innerHTML = `Aucun langage n'a été trouvé pour le moment`
+    }
 })
 
 let toShow = ''
