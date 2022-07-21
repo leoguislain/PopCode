@@ -749,10 +749,13 @@ input[type="checkbox"]:checked:before {
     flex-direction: column;
     justify-content: space-between;
     width: 126px;
-    height: 190px;
+    height: 210px;
     border: 2px solid #FFAAFF;
     border-radius: 10px;
     margin: 30px 15px;
+    font-family: 'Gotham', sans-serif;
+    color: white;
+    padding: 3px;
 }
 
 .card:hover{
@@ -766,12 +769,21 @@ input[type="checkbox"]:checked:before {
 }
 
 .ownedtitle{
-    color: white;
-    font-family: 'Gotham', sans-serif;
-    height: 100%;
-    font-size: 20px;
-    margin: 18px 0px;
+    font-size: 16px;
+    margin: 0px 0px 4px 0;
     text-transform: uppercase;
+
+}
+
+.learnmore{
+    width: 85%;
+    height: 20px;
+    background-color: #ffaaff55;
+    font-size: 15px;
+    margin: 0 0 3px 0;
+    text-align: center;
+    border-radius: 2px;
+    padding: 3px;
 }
 
 .close {

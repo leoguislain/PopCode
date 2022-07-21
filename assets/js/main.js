@@ -389,8 +389,8 @@ async function showLanguage() {
 //AFFICHAGE MENTIONS LEGALES
 let legals = document.querySelectorAll('.mentions')
 let modalelegals = document.querySelector('.modalelegals')
-legals.forEach(function(legal) {
-    legal.addEventListener('click',async function() {
+legals.forEach(function (legal) {
+    legal.addEventListener('click', async function () {
         console.log('legales')
         let reponses = await fetch("assets/js/languages.json")
         let data = await reponses.json()
@@ -439,8 +439,8 @@ async function addOwned() {
         return object.name === correctanswers[correctanswers.length - 1]
     })
     toShow +=
-    '<div class="card"><img src="'+data.languages.langage[indexOwned].picture+'" alt="Logo de '+data.languages.langage[indexOwned].name+'" class="ownedlogo"><p class="ownedtitle">'+data.languages.langage[indexOwned].name+'</p></div>'
-    modaleowned.innerHTML = toShow
+        '<div class="card"><img src="' + data.languages.langage[indexOwned].picture + '" alt="Logo de ' + data.languages.langage[indexOwned].name + '" class="ownedlogo"><p class="ownedtitle">' + data.languages.langage[indexOwned].name + '</p><div class="learnmore">En savoir plus</div></div>'
+    document.querySelector('.cardcontainer').innerHTML = toShow
 }
 
 closeowned.addEventListener('click', function () {
@@ -449,5 +449,26 @@ closeowned.addEventListener('click', function () {
     modaleowned.addEventListener('animationend', function () {
         modaleowned.style = 'display: none;'
         closeowned.style = 'display: none;'
+    })
+})
+
+//AFFICHAGE DESCRIPTION LANGAGES TROUVES
+let card = document.querySelectorAll('.card')
+let title = document.querySelectorAll('.ownedtitle')
+
+card.forEach(function (event) {
+    event.addEventListener('click', async function () {
+        let reponses = await fetch("assets/js/languages.json")
+        let data = await reponses.json()
+        console.log(data.languages)
+        const index = data.languages.langage.findIndex((object) => {
+            return object.name === title[event]
+        })
+        document.querySelector('.languagename').innerHTML = data.languages.langage[index].name
+        document.querySelector('.ldesc').innerHTML = data.languages.langage[index].description
+        document.querySelector('.languagelogo').src = data.languages.langage[index].picture
+        document.querySelector('.languagelogo').alt = 'Logo ' + data.languages.langage[index].name
+        console.log(index);
+        document.querySelector('.modaledesc').style = 'display : flex;'
     })
 })
