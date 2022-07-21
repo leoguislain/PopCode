@@ -4,6 +4,7 @@ body {
     box-sizing: border-box;
     height: 100vh;
     overflow: hidden;
+    cursor: none
 }
 
 * {
@@ -365,6 +366,7 @@ body {
     object-fit: fill;
     width: 100vw;
     height: 100vh;
+    transition: all 0.2s;
 }
 
 .petitlogo {
@@ -855,3 +857,41 @@ input[type="checkbox"]:checked:before {
     border-radius: 20px;
     padding: 1px;
 }
+
+.cursor {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    border: 1px solid rgb(255, 255, 255);
+    transition: all 200ms ease-out;
+    position: fixed;
+    pointer-events: none;
+    left: 0;
+    top: 0;
+    transform: translate(calc(-50% + 15px), -50%);
+    z-index: 5;
+}
+  
+  .cursor2 {
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    background-color: rgb(255, 255, 255);
+    opacity: .2;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    transition: width .3s, height .3s, opacity .3s;
+    z-index: 5;
+  }
+  
+  .hover {
+    background-color: rgb(246, 18, 200);
+    opacity: 0.5;
+  }
+  
+  .cursorinnerhover {
+    width: 50px;
+    height: 50px;
+    opacity: .5;
+  }

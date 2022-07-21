@@ -202,6 +202,9 @@ window.onkeydown = function (event) {
         modalanswer.style = 'display: flex; animation: appear 0.4s alternate;'
         document.querySelector('.answerzone').innerHTML += event.key
         answerOn = true
+        modaledesc.style = 'display: none;'
+        modaleowned.style = 'display: none;'
+        modalelegals.style = 'display: none;'
     }
     if (event.key == 'Backspace') {
         answerzone.innerHTML = answerzone.innerHTML.slice(0, -1)
@@ -417,6 +420,43 @@ closedesc.addEventListener('click', function () {
     })
 })
 
+// CURSOR CUSTOM
+let cursor = document.querySelector(".cursor")
+let cursorinner = document.querySelector(".cursor2")
+let a = document.querySelectorAll("a")
+
+document.addEventListener("mousemove", function (e) {
+  let x = e.clientX
+  let y = e.clientY
+  cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`
+})
+
+document.addEventListener("mousemove", function (e) {
+  let x = e.clientX
+  let y = e.clientY
+  cursorinner.style.left = x + "px"
+  cursorinner.style.top = y + "px"
+});
+
+document.addEventListener("mousedown", function () {
+  cursor.classList.add("click")
+  cursorinner.classList.add("cursorinnerhover")
+});
+
+document.addEventListener("mouseup", function () {
+  cursor.classList.remove("click")
+  cursorinner.classList.remove("cursorinnerhover")
+});
+
+a.forEach((item) => {
+  item.addEventListener("mouseover", () => {
+    cursor.classList.add("hover")
+  })
+  item.addEventListener("mouseleave", () => {
+    cursor.classList.remove("hover")
+  })
+})
+
 //LANGAGES TROUVES
 let owned = document.querySelector('.owned')
 let modaleowned = document.querySelector('.modaleowned')
@@ -427,6 +467,9 @@ owned.addEventListener('click', function () {
     closeowned.style = 'display: flex;'
     if (correctanswers.length == 0) {
         document.querySelector('.empty').innerHTML = `Aucun langage n'a été trouvé pour le moment`
+    }
+    else {
+        document.querySelector('.empty').innerHTML = ``
     }
 })
 
@@ -455,20 +498,40 @@ closeowned.addEventListener('click', function () {
 //AFFICHAGE DESCRIPTION LANGAGES TROUVES
 let card = document.querySelectorAll('.card')
 let title = document.querySelectorAll('.ownedtitle')
+let cardcontainer = document.querySelectorAll('.cardcontainer')
 
-card.forEach(function (event) {
-    event.addEventListener('click', async function () {
-        let reponses = await fetch("assets/js/languages.json")
-        let data = await reponses.json()
-        console.log(data.languages)
-        const index = data.languages.langage.findIndex((object) => {
-            return object.name === title[event]
-        })
-        document.querySelector('.languagename').innerHTML = data.languages.langage[index].name
-        document.querySelector('.ldesc').innerHTML = data.languages.langage[index].description
-        document.querySelector('.languagelogo').src = data.languages.langage[index].picture
-        document.querySelector('.languagelogo').alt = 'Logo ' + data.languages.langage[index].name
-        console.log(index);
-        document.querySelector('.modaledesc').style = 'display : flex;'
+modaleowned.childNodes[3].childNodes[0].childNodes[1]
+
+// for (let i = 0; i < card.length; i++) {
+//     card[i].addEventListener('click', function() {
+//         console.log('CLICK');
+//     })
+// }
+
+// card.forEach(function (event) {
+//     event.addEventListener('click',async function () {
+//         console.log('CLICK');
+//         let reponses = await fetch("assets/js/languages.json")
+//         let data = await reponses.json()
+//         console.log(data.languages)
+//         const index = data.languages.langage.findIndex((object) => {
+//             return object.name === modaleowned.childNodes[3].childNodes[0].childNodes[1]
+//         })
+//         document.querySelector('.languagename').innerHTML = data.languages.langage[index].name
+//         document.querySelector('.ldesc').innerHTML = data.languages.langage[index].description
+//         document.querySelector('.languagelogo').src = data.languages.langage[index].picture
+//         document.querySelector('.languagelogo').alt = 'Logo ' + data.languages.langage[index].name
+//         console.log(index);
+//         document.querySelector('.modaledesc').style = 'display : flex;'
+//     })
+// })
+
+modaleowned.childNodes[3].childNodes.forEach(function (event) {
+    event.addEventListener('click', function () {
+        console.log('OK');
     })
 })
+
+// addEventListener('click', function() {
+//     console.log('ok');
+// })
