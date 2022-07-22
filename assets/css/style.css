@@ -852,6 +852,10 @@ input[type="checkbox"]:checked:before {
     }
 }
 
+.zoomcursor {
+    animation: ease-in 0.6s cursor infinite alternate;
+}
+
 .cursor {
     width: 50px;
     height: 50px;
@@ -864,7 +868,6 @@ input[type="checkbox"]:checked:before {
     top: 0;
     transform: translate(calc(-50% + 15px), -50%);
     z-index: 5;
-    animation: ease-in 0.6s cursor infinite alternate;
 }
 
 .cursor2 {

@@ -522,3 +522,12 @@ modaleowned.childNodes[3].childNodes.forEach(function (event) {
 // addEventListener('click', function() {
 //     console.log('ok');
 // })
+
+//ARRET ANIMATION ON CLICK
+
+window.addEventListener('mousedown', function() {
+    document.querySelector('.cursor').classList.remove('zoomcursor')
+})
+window.addEventListener('mouseup', function() {
+    document.querySelector('.cursor').classList.add('zoomcursor')
+})
