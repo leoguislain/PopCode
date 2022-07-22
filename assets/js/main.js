@@ -26,52 +26,6 @@ function checksize () {
     setTimeout(launchClickToStart, 8800)
 }
 
-// function checksize(screensize) {
-//     if (screensize.matches) {
-//         setTimeout(removeanimation, 4500)
-//         setTimeout(switchoffO, 5600)
-//         setTimeout(switchoffP2, 5800)
-//         setTimeout(switchoffE, 6200)
-//         setTimeout(switchoffAll, 6500)
-//         setTimeout(switchPage, 7100)
-//         setTimeout(launchSite, 8200)
-//         setTimeout(launchClickToStart, 8800)
-//         console.log(screensize)
-//     } else {
-//         return
-//         setTimeout(removeanimation, 4500)
-//         setTimeout(switchoffO, 5600)
-//         setTimeout(switchoffP2, 5800)
-//         setTimeout(switchoffE, 6200)
-//         setTimeout(switchoffAll, 6500)
-//         setTimeout(switchPage, 7100)
-//         setTimeout(launchSite, 8200)
-//         setTimeout(launchClickToStart, 8800)
-
-
-
-
-//         loader.style = 'display:none;'
-//         titre.style = 'display:none;'
-//         imgbug.style = 'display:none;'
-//         clicktostart.style = 'display:none;'
-//         game.style = 'display:none;'
-//         waitingscreen.style = 'display: flex;'
-//         document.querySelector('.logo').style = 'position: relative; width: 40%'
-//         document.querySelector('.msgresize').classList.remove('resizemsg')
-//         document.querySelector('.msgresize').style = 'font-size: 7vw; display: flex; text-align: center'
-//         console.log(screensize)
-//     }
-// }
-
-// setTimeout(removeanimation, 4500)
-// setTimeout(switchoffO, 5600)
-// setTimeout(switchoffP2, 5800)
-// setTimeout(switchoffE, 6200)
-// setTimeout(switchoffAll, 6500)
-// setTimeout(switchPage, 7100)
-// setTimeout(launchSite, 8200)
-// setTimeout(launchClickToStart, 8800)
 
 // FIN DE L'EFFET DEMARRAGE NEON
 function removeanimation() {
@@ -142,6 +96,7 @@ document.querySelector('.start').addEventListener('click', function () {
         document.querySelector('.owned').style = 'animation: appear 1s alternate;'
         document.querySelector('.zoomall').classList.remove('gameshow')
         document.querySelector('.zoomall').style = 'animation: appear 1s alternate;'
+        document.querySelector('.consign').style = 'display: flex;'
         gameOn = true
     })
 })
@@ -149,23 +104,27 @@ document.querySelector('.start').addEventListener('click', function () {
 let error1 = false
 let error2 = false
 let error3 = false
+let nowrite = false
 
 // FONCTION D'ERREURS
 function adderror() {
     if (error1 == false & error1 != true) {
         document.querySelector('.error1').style = 'opacity: 1; color: #0AEFF7;'
         error1 = true
+        nowrite = false
         return
     }
     if (error1 == true & error2 == false) {
         document.querySelector('.error2').style = 'opacity:1; color: #0AEFF7;'
         error2 = true
+        nowrite = false
         return
     }
     if (error2 == true & error3 == false) {
         document.querySelector('.error3').style = 'opacity: 1; color: #0AEFF7;'
         error3 = true
         document.querySelector('.modalegameover').style = 'display: flex'
+        nowrite = true
         return
     }
 }
@@ -199,7 +158,7 @@ window.addEventListener("keydown", function (event) {
 });
 
 window.onkeydown = function (event) {
-    if (letters.includes(event.key) == true & gameOn == true) {
+    if (letters.includes(event.key) == true & gameOn == true & nowrite == false) {
         modalanswer.style = 'display: flex; animation: appear 0.4s alternate;'
         document.querySelector('.answerzone').innerHTML += event.key
         answerOn = true
@@ -226,7 +185,6 @@ let errormsg = [`Tu n'as écrit aucune réponse !`, 'Tu as déjà trouvé ce lan
 let alertmsg = document.querySelector('.alertmsg')
 let alert = [`Tu as trouvé un langage !`, `Tu t'es trompé(e)`]
 let msgerror = document.querySelector('.msgerror')
-const scoreToWin = languages.length
 
 window.addEventListener('keydown', function (event) {
     if (event.key == 'Enter' & answerOn == true) {
@@ -339,6 +297,7 @@ restart.addEventListener('click', function () {
     modalegameover.style = 'display: flex; animation: disappear 0.6s alternate;'
     modalegameover.addEventListener('animationend', function () {
         modalegameover.style = 'display: none;'
+        nowrite = false
     })
 })
 
@@ -349,15 +308,18 @@ document.querySelector('.restartwin').addEventListener('click', function () {
     modalewin.style = 'display: flex; animation: disappear 0.6s alternate;'
     modalewin.addEventListener('animationend', function () {
         modalewin.style = 'display: none;'
+        nowrite = false
     })
 })
 
 // AFFICHAGE MODALE VICTOIRE
 function checkWin() {
-    if (correctanswers.length == (scoreToWin)) {
+    if (languages.length +1  == 0) {
         modalewin.style = 'display: flex;'
         console.log('WIN')
+        nowrite = true
     } else {
+        console.log('PAS WIN');
         return
     }
 }
