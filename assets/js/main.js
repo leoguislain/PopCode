@@ -13,7 +13,7 @@ game.style = 'display: flex;'
 
 var screensize = window.matchMedia("(min-width: 1000px)")
 checksize(screensize)
-screensize.addEventListener('change', checksize)
+screensize.addEventListener('click', checksize)
 
 function checksize(screensize) {
     if (screensize.matches) {
@@ -27,50 +27,35 @@ function checksize(screensize) {
         setTimeout(launchClickToStart, 8800)
         console.log(screensize)
     } else {
-        loader.style = 'display:none;'
-        titre.style = 'display:none;'
-        imgbug.style = 'display:none;'
-        clicktostart.style = 'display:none;'
-        game.style = 'display:none;'
-        waitingscreen.style = 'display: flex;'
-        document.querySelector('.logo').style = 'position: relative; width: 40%'
-        document.querySelector('.msgresize').classList.remove('resizemsg')
-        document.querySelector('.msgresize').style = 'font-size: 7vw; display: flex; text-align: center'
-        console.log(screensize)
+        setTimeout(removeanimation, 4500)
+        setTimeout(switchoffO, 5600)
+        setTimeout(switchoffP2, 5800)
+        setTimeout(switchoffE, 6200)
+        setTimeout(switchoffAll, 6500)
+        setTimeout(switchPage, 7100)
+        setTimeout(launchSite, 8200)
+        setTimeout(launchClickToStart, 8800)
+        // loader.style = 'display:none;'
+        // titre.style = 'display:none;'
+        // imgbug.style = 'display:none;'
+        // clicktostart.style = 'display:none;'
+        // game.style = 'display:none;'
+        // waitingscreen.style = 'display: flex;'
+        // document.querySelector('.logo').style = 'position: relative; width: 40%'
+        // document.querySelector('.msgresize').classList.remove('resizemsg')
+        // document.querySelector('.msgresize').style = 'font-size: 7vw; display: flex; text-align: center'
+        // console.log(screensize)
     }
 }
 
-// function checksize(screensize) {
-//     if (screensize.matches & resize == false) {
-//         resize = true
-//         setTimeout(removeanimation, 4500)
-//         setTimeout(switchoffO, 5600)
-//         setTimeout(switchoffP2, 5800)
-//         setTimeout(switchoffE, 6200)
-//         setTimeout(switchoffAll, 6500)
-//         setTimeout(switchPage, 7100)
-//         setTimeout(launchSite, 8200)
-//         setTimeout(launchClickToStart, 8800)
-//         console.log(screensize)
-//     }
-//     if (screensize.matches & resize == true) {
-//         document.querySelector('.msgresize').style = 'display: none;'
-//         launchSite()
-//         launchClickToStart()
-//     } 
-//     else {
-//         loader.style = 'display:none;'
-//         titre.style = 'display:none;'
-//         imgbug.style = 'display:none;'
-//         clicktostart.style = 'display:none;'
-//         game.style = 'display:none;'
-//         waitingscreen.style = 'display: flex;'
-//         document.querySelector('.logo').style = 'position: relative; width: 40%'
-//         document.querySelector('.msgresize').classList.remove('resizemsg')
-//         document.querySelector('.msgresize').style = 'font-size: 7vw; display: flex; text-align: center'
-//         console.log(screensize)
-//     }
-// }
+// setTimeout(removeanimation, 4500)
+// setTimeout(switchoffO, 5600)
+// setTimeout(switchoffP2, 5800)
+// setTimeout(switchoffE, 6200)
+// setTimeout(switchoffAll, 6500)
+// setTimeout(switchPage, 7100)
+// setTimeout(launchSite, 8200)
+// setTimeout(launchClickToStart, 8800)
 
 // FIN DE L'EFFET DEMARRAGE NEON
 function removeanimation() {
@@ -225,11 +210,13 @@ let errormsg = [`Tu n'as écrit aucune réponse !`, 'Tu as déjà trouvé ce lan
 let alertmsg = document.querySelector('.alertmsg')
 let alert = [`Tu as trouvé un langage !`, `Tu t'es trompé(e)`]
 let msgerror = document.querySelector('.msgerror')
+const scoreToWin = languages.length
 
 window.addEventListener('keydown', function (event) {
     if (event.key == 'Enter' & answerOn == true) {
         console.log('checkWin');
         checkWin()
+        console.log(correctanswers.length + '=' + languages.length+correctanswers.length);
         for (var i = 0; i < languages.length; i++) {
             if (answerzone.innerHTML == "") {
                 msgerror.innerHTML = errormsg[0]
@@ -350,9 +337,9 @@ document.querySelector('.restartwin').addEventListener('click', function () {
 
 // AFFICHAGE MODALE VICTOIRE
 function checkWin() {
-    if (correctanswers.length >= languages.length + correctanswers.length) {
+    if (correctanswers.length == (scoreToWin)) {
         modalewin.style = 'display: flex;'
-        console.log('WIN');
+        console.log('WIN')
     } else {
         return
     }
@@ -423,7 +410,7 @@ closedesc.addEventListener('click', function () {
 // CURSOR CUSTOM
 let cursor = document.querySelector(".cursor")
 let cursorinner = document.querySelector(".cursor2")
-let a = document.querySelectorAll("a")
+let a = document.querySelectorAll(".hovereffect")
 
 document.addEventListener("mousemove", function (e) {
   let x = e.clientX
@@ -482,7 +469,7 @@ async function addOwned() {
         return object.name === correctanswers[correctanswers.length - 1]
     })
     toShow +=
-        '<div class="card"><img src="' + data.languages.langage[indexOwned].picture + '" alt="Logo de ' + data.languages.langage[indexOwned].name + '" class="ownedlogo"><p class="ownedtitle">' + data.languages.langage[indexOwned].name + '</p><div class="learnmore">En savoir plus</div></div>'
+        '<div class="card hovereffect"><img src="' + data.languages.langage[indexOwned].picture + '" alt="Logo de ' + data.languages.langage[indexOwned].name + '" class="ownedlogo"><p class="ownedtitle">' + data.languages.langage[indexOwned].name + '</p><div class="learnmore">En savoir plus</div></div>'
     document.querySelector('.cardcontainer').innerHTML = toShow
 }
 

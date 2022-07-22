@@ -36,12 +36,15 @@
             <span data-vanilla-counter data-start-at="0" data-end-at="27" data-time="1500" data-delay="8800"
                 data-format="{}" class="refnumber"> </span>
             <p class="reftext">références de<br>langages de programmation<br>à retrouver</p>
-            <p class="start">Cliquer pour commencer</p>
+            <p class="start hovereffect">Cliquer pour commencer</p>
         </div>
-        <p class="resizemsg msgresize">Merci de jouer sur un écran plus grand !</p>
         <div class="legals">
-            <p class="mentions">Mentions légales</p>
+            <p class="mentions hovereffect">Mentions légales</p>
         </div>
+    </section>
+    <section class="responsive">
+        <img class="rlogo" src="assets/img/logo.svg" alt="Logo de PopCode">
+        <p class="resizemsg msgresize">Merci de jouer sur un écran plus grand !</p>
     </section>
     <section class="gameshow game">
         <div class="zoom bg">
@@ -49,7 +52,7 @@
         </div>
         <img class="petitlogo gameshow" src="assets/img/logosolo.svg" alt="Logo de PopCode">
         <div class="legalsgame">
-            <p class="mentions">Mentions légales</p>
+            <p class="mentions hovereffect">Mentions légales</p>
         </div>
         <div class="score gameshow">
             <p class="textscore">Score</p>
@@ -61,7 +64,7 @@
         </div>
         <div class="owned gameshow">
             <img class="loupe" src="assets/img/searchicon.svg" alt="Icone de loupe">
-            <p class="langages">Langages trouvés</p>
+            <p class="langages hovereffect">Langages trouvés</p>
         </div>
         <div class="zoomall gameshow">
             <p class="textzoom">zoom</p>
@@ -87,16 +90,16 @@
     </div>
     <div class="modalegameover">
         <p class="gameover">GAME OVER</p>
-        <p class="restart">Cliquez ici pour recommencer</p>
+        <p class="restart hovereffect">Cliquez ici pour recommencer</p>
     </div>
     <div class="modalewin">
         <p class="win">Tu as gagné</p>
-        <p class="restartwin">Cliquez ici pour recommencer</p>
+        <p class="restartwin hovereffect">Cliquez ici pour recommencer</p>
     </div>
     <div class="modaledesc">
         <div class="titleclose">
             <p class="languagename"></p>
-            <img class="closedescmodale" src="assets/img/cross.png" alt="">
+            <img class="closedescmodale hovereffect" src="assets/img/cross.png" alt="">
         </div>
         <div class="logodesc">
             <img class="languagelogo" src="" alt="">
@@ -104,7 +107,7 @@
         </div>
         <div class="closedesc">
             <p>Fermer automatiquement cette fenêtre</p>
-            <input type="checkbox">
+            <input type="checkbox" class="hovereffect">
         </div>
     </div>
     <div class="modaleowned">
@@ -120,9 +123,9 @@
     <div class="modalelegals">
         <p class="mentionslegales">
         </p>
-        <img class="closelegals close" src="assets/img/cross.png" alt="">
+        <img class="closelegals close hovereffect" src="assets/img/cross.png" alt="">
     </div>
-    <img class="closeowned close" src="assets/img/cross.png" alt="">
+    <img class="closeowned close hovereffect" src="assets/img/cross.png" alt="">
     <script src="assets/js/main.js"></script>
     <script>
         VanillaCounter();

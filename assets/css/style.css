@@ -203,7 +203,6 @@ body {
     text-decoration: none;
     color: white;
     border-bottom: solid 1px;
-    cursor: pointer;
 }
 
 .mentions:hover {
@@ -239,7 +238,6 @@ body {
     color: #FFAAFF;
     letter-spacing: 5px;
     transition: letter-spacing 0.6s;
-    cursor: pointer;
 }
 
 .start:hover {
@@ -441,10 +439,9 @@ body {
     letter-spacing: 2px;
     border: solid 1px white;
     padding: 0px 12px 0px 10px;
-    cursor: pointer;
 }
 
-.owned:hover{
+.owned:hover {
     border: solid 1px #FFAAFF;
     transition: all 0.3s;
 }
@@ -552,7 +549,7 @@ body {
 
 .modalegameover {
     background-color: rgba(0, 0, 0, 0.7);
-    color: rgb(247, 178, 178); 
+    color: rgb(247, 178, 178);
     position: absolute;
     flex-direction: column;
     justify-content: center;
@@ -600,7 +597,6 @@ body {
     color: #FFAAFF;
     letter-spacing: 5px;
     transition: letter-spacing 0.6s;
-    cursor: pointer;
     font-size: 24px;
 }
 
@@ -613,7 +609,6 @@ body {
     color: #FFAAFF;
     letter-spacing: 5px;
     transition: letter-spacing 0.6s;
-    cursor: pointer;
     font-size: 24px;
 }
 
@@ -686,10 +681,6 @@ body {
     padding: 1px;
 }
 
-.closedescmodale {
-    cursor: pointer;
-}
-
 .closedesc {
     width: 60vw;
     display: flex;
@@ -726,7 +717,7 @@ input[type="checkbox"]:checked:before {
     position: absolute;
 }
 
-.modaleowned{
+.modaleowned {
     display: none;
     justify-content: center;
     align-items: center;
@@ -738,7 +729,7 @@ input[type="checkbox"]:checked:before {
     height: 100vh;
 }
 
-.cardcontainer{
+.cardcontainer {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -760,24 +751,20 @@ input[type="checkbox"]:checked:before {
     padding: 3px;
 }
 
-.card:hover{
-    cursor: pointer;
-}
-
 .ownedlogo {
     width: 120px;
     height: 120px;
     margin: 3px 0;
 }
 
-.ownedtitle{
+.ownedtitle {
     font-size: 16px;
     margin: 0px 0px 4px 0;
     text-transform: uppercase;
 
 }
 
-.learnmore{
+.learnmore {
     width: 85%;
     height: 20px;
     background-color: #ffaaff55;
@@ -793,7 +780,6 @@ input[type="checkbox"]:checked:before {
     top: 20px;
     right: 20px;
     display: none;
-    cursor: pointer;
 }
 
 .alertmsg {
@@ -808,7 +794,7 @@ input[type="checkbox"]:checked:before {
     font-style: italic;
 }
 
-.empty{
+.empty {
     color: white;
     position: absolute;
     top: 400px;
@@ -818,7 +804,7 @@ input[type="checkbox"]:checked:before {
     font-family: 'Gotham', sans-serif;
 }
 
-.modalelegals{
+.modalelegals {
     background-color: rgba(0, 0, 0, 0.7);
     position: absolute;
     top: 0;
@@ -831,7 +817,7 @@ input[type="checkbox"]:checked:before {
     display: none;
 }
 
-.mentionslegales{
+.mentionslegales {
     color: white;
     width: 60%;
     height: 60vh;
@@ -839,7 +825,7 @@ input[type="checkbox"]:checked:before {
     font-family: 'Gotham', sans-serif;
 }
 
-.link{
+.link {
     color: #FFAAFF;
 }
 
@@ -858,11 +844,19 @@ input[type="checkbox"]:checked:before {
     padding: 1px;
 }
 
+@keyframes cursor {
+    100% {
+        width: 30px;
+        height: 30px;
+        border: 1px solid white;
+    }
+}
+
 .cursor {
     width: 50px;
     height: 50px;
     border-radius: 100%;
-    border: 1px solid rgb(255, 255, 255);
+    border: 1px solid #FFAAFF;
     transition: all 200ms ease-out;
     position: fixed;
     pointer-events: none;
@@ -870,9 +864,10 @@ input[type="checkbox"]:checked:before {
     top: 0;
     transform: translate(calc(-50% + 15px), -50%);
     z-index: 5;
+    animation: ease-in 0.6s cursor infinite alternate;
 }
-  
-  .cursor2 {
+
+.cursor2 {
     width: 20px;
     height: 20px;
     border-radius: 100%;
@@ -883,15 +878,71 @@ input[type="checkbox"]:checked:before {
     pointer-events: none;
     transition: width .3s, height .3s, opacity .3s;
     z-index: 5;
-  }
-  
-  .hover {
+}
+
+.hover {
     background-color: rgb(246, 18, 200);
     opacity: 0.5;
-  }
-  
-  .cursorinnerhover {
+}
+
+.cursorinnerhover {
     width: 50px;
     height: 50px;
     opacity: .5;
-  }
+}
+
+.responsive {
+    display: none;
+}
+
+.rlogo {
+    width: 50%;
+    height: 50%;
+}
+
+
+
+@media screen and (max-width: 1200px) {
+    .responsive {
+        width: 100vw;
+        height: 100vh;
+        background-image: url('../img/bgbrick.png');
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .resizemsg {
+        display: flex;
+        color: white;
+        font-family: 'Gotham', sans-serif;
+    }
+
+    .bg {
+        display: none;
+    }
+    .scorehorizontal {
+        display: none;
+    }
+    .petitlogo {
+        display: none;
+    }
+
+    .legalsgame {
+        display: none;
+    }
+
+    .owned {
+        display: none;
+    }
+
+    .zoomall{
+        display: none;
+    }
+
+    .score {
+        display: none;
+    }
+
+}
