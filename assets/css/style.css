@@ -903,6 +903,26 @@ input[type="checkbox"]:checked:before {
     height: 50%;
 }
 
+.consign {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 21px;
+    left: 0;
+    width: 100%;
+    z-index: 30;
+    color: white;
+}
+
+.consign > p {
+    margin: 15px;
+}
+
+.fa-keyboard{
+    font-size: 30px;
+}
+
 
 
 @media screen and (max-width: 1200px) {
@@ -946,6 +966,12 @@ input[type="checkbox"]:checked:before {
 
     .score {
         display: none;
+    }
+    .loader {
+        display: none;
+    }
+    .waitingscreen {
+        display: none!important;
     }
 
 }

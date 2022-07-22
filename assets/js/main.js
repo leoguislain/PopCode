@@ -15,38 +15,54 @@ var screensize = window.matchMedia("(min-width: 1000px)")
 checksize(screensize)
 screensize.addEventListener('click', checksize)
 
-function checksize(screensize) {
-    if (screensize.matches) {
-        setTimeout(removeanimation, 4500)
-        setTimeout(switchoffO, 5600)
-        setTimeout(switchoffP2, 5800)
-        setTimeout(switchoffE, 6200)
-        setTimeout(switchoffAll, 6500)
-        setTimeout(switchPage, 7100)
-        setTimeout(launchSite, 8200)
-        setTimeout(launchClickToStart, 8800)
-        console.log(screensize)
-    } else {
-        setTimeout(removeanimation, 4500)
-        setTimeout(switchoffO, 5600)
-        setTimeout(switchoffP2, 5800)
-        setTimeout(switchoffE, 6200)
-        setTimeout(switchoffAll, 6500)
-        setTimeout(switchPage, 7100)
-        setTimeout(launchSite, 8200)
-        setTimeout(launchClickToStart, 8800)
-        // loader.style = 'display:none;'
-        // titre.style = 'display:none;'
-        // imgbug.style = 'display:none;'
-        // clicktostart.style = 'display:none;'
-        // game.style = 'display:none;'
-        // waitingscreen.style = 'display: flex;'
-        // document.querySelector('.logo').style = 'position: relative; width: 40%'
-        // document.querySelector('.msgresize').classList.remove('resizemsg')
-        // document.querySelector('.msgresize').style = 'font-size: 7vw; display: flex; text-align: center'
-        // console.log(screensize)
-    }
+function checksize () {
+    setTimeout(removeanimation, 4500)
+    setTimeout(switchoffO, 5600)
+    setTimeout(switchoffP2, 5800)
+    setTimeout(switchoffE, 6200)
+    setTimeout(switchoffAll, 6500)
+    setTimeout(switchPage, 7100)
+    setTimeout(launchSite, 8200)
+    setTimeout(launchClickToStart, 8800)
 }
+
+// function checksize(screensize) {
+//     if (screensize.matches) {
+//         setTimeout(removeanimation, 4500)
+//         setTimeout(switchoffO, 5600)
+//         setTimeout(switchoffP2, 5800)
+//         setTimeout(switchoffE, 6200)
+//         setTimeout(switchoffAll, 6500)
+//         setTimeout(switchPage, 7100)
+//         setTimeout(launchSite, 8200)
+//         setTimeout(launchClickToStart, 8800)
+//         console.log(screensize)
+//     } else {
+//         return
+//         setTimeout(removeanimation, 4500)
+//         setTimeout(switchoffO, 5600)
+//         setTimeout(switchoffP2, 5800)
+//         setTimeout(switchoffE, 6200)
+//         setTimeout(switchoffAll, 6500)
+//         setTimeout(switchPage, 7100)
+//         setTimeout(launchSite, 8200)
+//         setTimeout(launchClickToStart, 8800)
+
+
+
+
+//         loader.style = 'display:none;'
+//         titre.style = 'display:none;'
+//         imgbug.style = 'display:none;'
+//         clicktostart.style = 'display:none;'
+//         game.style = 'display:none;'
+//         waitingscreen.style = 'display: flex;'
+//         document.querySelector('.logo').style = 'position: relative; width: 40%'
+//         document.querySelector('.msgresize').classList.remove('resizemsg')
+//         document.querySelector('.msgresize').style = 'font-size: 7vw; display: flex; text-align: center'
+//         console.log(screensize)
+//     }
+// }
 
 // setTimeout(removeanimation, 4500)
 // setTimeout(switchoffO, 5600)
@@ -319,6 +335,7 @@ restart.addEventListener('click', function () {
     removeerrors()
     scorereset()
     resetarray()
+    cleanCards()
     modalegameover.style = 'display: flex; animation: disappear 0.6s alternate;'
     modalegameover.addEventListener('animationend', function () {
         modalegameover.style = 'display: none;'
@@ -343,6 +360,15 @@ function checkWin() {
     } else {
         return
     }
+}
+
+//CLEAR CARDS
+
+function cleanCards () {
+    let cards = document.querySelectorAll('.card')
+    cards.forEach(element => {
+        element.remove()
+    })
 }
 
 // AFFICHAGE DESCRIPTION LANGUAGES
@@ -469,8 +495,25 @@ async function addOwned() {
         return object.name === correctanswers[correctanswers.length - 1]
     })
     toShow +=
-        '<div class="card hovereffect"><img src="' + data.languages.langage[indexOwned].picture + '" alt="Logo de ' + data.languages.langage[indexOwned].name + '" class="ownedlogo"><p class="ownedtitle">' + data.languages.langage[indexOwned].name + '</p><div class="learnmore">En savoir plus</div></div>'
+    '<div class="card hovereffect" id="'+data.languages.langage[indexOwned].name+'"><img src="' + data.languages.langage[indexOwned].picture + '" alt="Logo de ' + data.languages.langage[indexOwned].name + '" class="ownedlogo"><p class="ownedtitle">' + data.languages.langage[indexOwned].name + '</p><div class="learnmore">En savoir plus</div></div>'
     document.querySelector('.cardcontainer').innerHTML = toShow
+    let card = document.querySelectorAll('.card')
+    console.log(card);
+    card.forEach(element => {
+        element.addEventListener('click', function () {
+            console.log('TETZETZETE');
+        const index = data.languages.langage.findIndex((object) => {
+            return object.name === element.getAttribute('id')
+        })
+        document.querySelector('.languagename').innerHTML = data.languages.langage[index].name
+        document.querySelector('.ldesc').innerHTML = data.languages.langage[index].description
+        document.querySelector('.languagelogo').src = data.languages.langage[index].picture
+        document.querySelector('.languagelogo').alt = 'Logo ' + data.languages.langage[index].name
+        console.log(index);
+        document.querySelector('.modaledesc').style = 'display : flex; z-index: 999;'
+        })
+        
+    });
 }
 
 closeowned.addEventListener('click', function () {
@@ -481,47 +524,6 @@ closeowned.addEventListener('click', function () {
         closeowned.style = 'display: none;'
     })
 })
-
-//AFFICHAGE DESCRIPTION LANGAGES TROUVES
-let card = document.querySelectorAll('.card')
-let title = document.querySelectorAll('.ownedtitle')
-let cardcontainer = document.querySelectorAll('.cardcontainer')
-
-modaleowned.childNodes[3].childNodes[0].childNodes[1]
-
-// for (let i = 0; i < card.length; i++) {
-//     card[i].addEventListener('click', function() {
-//         console.log('CLICK');
-//     })
-// }
-
-// card.forEach(function (event) {
-//     event.addEventListener('click',async function () {
-//         console.log('CLICK');
-//         let reponses = await fetch("assets/js/languages.json")
-//         let data = await reponses.json()
-//         console.log(data.languages)
-//         const index = data.languages.langage.findIndex((object) => {
-//             return object.name === modaleowned.childNodes[3].childNodes[0].childNodes[1]
-//         })
-//         document.querySelector('.languagename').innerHTML = data.languages.langage[index].name
-//         document.querySelector('.ldesc').innerHTML = data.languages.langage[index].description
-//         document.querySelector('.languagelogo').src = data.languages.langage[index].picture
-//         document.querySelector('.languagelogo').alt = 'Logo ' + data.languages.langage[index].name
-//         console.log(index);
-//         document.querySelector('.modaledesc').style = 'display : flex;'
-//     })
-// })
-
-modaleowned.childNodes[3].childNodes.forEach(function (event) {
-    event.addEventListener('click', function () {
-        console.log('OK');
-    })
-})
-
-// addEventListener('click', function() {
-//     console.log('ok');
-// })
 
 //ARRET ANIMATION ON CLICK
 
