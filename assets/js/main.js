@@ -165,6 +165,7 @@ window.onkeydown = function (event) {
         modaledesc.style = 'display: none;'
         modaleowned.style = 'display: none;'
         modalelegals.style = 'display: none;'
+        document.querySelector('.close') = 'display: none;'
     }
     if (event.key == 'Backspace') {
         answerzone.innerHTML = answerzone.innerHTML.slice(0, -1)
@@ -294,6 +295,7 @@ restart.addEventListener('click', function () {
     scorereset()
     resetarray()
     cleanCards()
+    toShow = ''
     modalegameover.style = 'display: flex; animation: disappear 0.6s alternate;'
     modalegameover.addEventListener('animationend', function () {
         modalegameover.style = 'display: none;'
@@ -305,6 +307,8 @@ document.querySelector('.restartwin').addEventListener('click', function () {
     removeerrors()
     scorereset()
     resetarray()
+    cleanCards()
+    toShow = ''
     modalewin.style = 'display: flex; animation: disappear 0.6s alternate;'
     modalewin.addEventListener('animationend', function () {
         modalewin.style = 'display: none;'
@@ -337,17 +341,7 @@ function cleanCards () {
 let input = document.querySelector('input')
 async function showLanguage() {
     if (input.checked) {
-        let reponses = await fetch("assets/js/languages.json")
-        let data = await reponses.json()
-        console.log(data.languages)
-        const index = data.languages.langage.findIndex((object) => {
-            return object.name === correctanswers[correctanswers.length - 1]
-        })
-        document.querySelector('.languagename').innerHTML = data.languages.langage[index].name
-        document.querySelector('.ldesc').innerHTML = data.languages.langage[index].description
-        document.querySelector('.languagelogo').src = data.languages.langage[index].picture
-        document.querySelector('.languagelogo').alt = 'Logo ' + data.languages.langage[index].name
-        console.log(index);
+        return
     } else {
         let reponses = await fetch("assets/js/languages.json")
         let data = await reponses.json()
@@ -472,7 +466,7 @@ async function addOwned() {
         document.querySelector('.languagelogo').src = data.languages.langage[index].picture
         document.querySelector('.languagelogo').alt = 'Logo ' + data.languages.langage[index].name
         console.log(index);
-        document.querySelector('.modaledesc').style = 'display : flex; z-index: 999;'
+        document.querySelector('.modaledesc').style = 'display : flex; z-index: 999999;'
         })
         
     });

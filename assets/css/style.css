@@ -194,7 +194,7 @@ body {
     bottom: 0;
     right: 0;
     font-size: 12px;
-    z-index: 9999;
+    z-index: 99999999;
 }
 
 .mentions {
@@ -523,6 +523,7 @@ body {
     font-family: 'Gotham', sans-serif;
     text-transform: uppercase;
     text-align: center;
+    z-index: 99999;
 }
 
 .answerzone {
@@ -562,6 +563,7 @@ body {
     font-family: 'Commissioner', sans-serif;
     font-weight: 700;
     display: none;
+    z-index: 99999;
 }
 
 .modalewin {
@@ -578,6 +580,7 @@ body {
     font-family: 'Commissioner', sans-serif;
     font-weight: 700;
     display: none;
+    z-index: 99999;
 }
 
 .win {
@@ -631,6 +634,7 @@ body {
     flex-direction: column;
     justify-content: center;
     padding-left: 80px;
+    z-index: 9999;
 }
 
 .languagename {
@@ -686,6 +690,11 @@ body {
     width: 60vw;
     display: flex;
     justify-content: flex-end;
+    z-index: 9999;
+}
+
+.closedescmodale {
+    z-index: 9999999;
 }
 
 .closedesc>p {
@@ -728,6 +737,7 @@ input[type="checkbox"]:checked:before {
     left: 0;
     width: 100vw;
     height: 100vh;
+    z-index: 99999;
 }
 
 .cardcontainer {
@@ -781,6 +791,7 @@ input[type="checkbox"]:checked:before {
     top: 20px;
     right: 20px;
     display: none;
+    z-index: 99999;
 }
 
 .alertmsg {
@@ -816,6 +827,7 @@ input[type="checkbox"]:checked:before {
     justify-content: center;
     align-items: center;
     display: none;
+    z-index: 99999;
 }
 
 .mentionslegales {
@@ -868,7 +880,7 @@ input[type="checkbox"]:checked:before {
     left: 0;
     top: 0;
     transform: translate(calc(-50% + 15px), -50%);
-    z-index: 5;
+    z-index: 999999999999;
 }
 
 .cursor2 {
@@ -881,7 +893,7 @@ input[type="checkbox"]:checked:before {
     transform: translate(-50%, -50%);
     pointer-events: none;
     transition: width .3s, height .3s, opacity .3s;
-    z-index: 5;
+    z-index: 999999999;
 }
 
 .hover {
