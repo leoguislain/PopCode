@@ -745,6 +745,7 @@ input[type="checkbox"]:checked:before {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    width: 80%;
 }
 
 .card {

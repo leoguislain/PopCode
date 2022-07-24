@@ -318,7 +318,7 @@ document.querySelector('.restartwin').addEventListener('click', function () {
 
 // AFFICHAGE MODALE VICTOIRE
 function checkWin() {
-    if (languages.length +1  == 0) {
+    if (languages.length  == 1) {
         modalewin.style = 'display: flex;'
         console.log('WIN')
         nowrite = true
