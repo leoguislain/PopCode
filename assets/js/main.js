@@ -457,7 +457,7 @@ async function addOwned() {
     console.log(card);
     card.forEach(element => {
         element.addEventListener('click', function () {
-            console.log('TETZETZETE');
+            console.log('TEST');
         const index = data.languages.langage.findIndex((object) => {
             return object.name === element.getAttribute('id')
         })

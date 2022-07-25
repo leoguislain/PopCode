@@ -881,7 +881,7 @@ input[type="checkbox"]:checked:before {
     left: 0;
     top: 0;
     transform: translate(calc(-50% + 15px), -50%);
-    z-index: 999999999999;
+    z-index: 999999999;
 }
 
 .cursor2 {
@@ -950,13 +950,11 @@ input[type="checkbox"]:checked:before {
         align-items: center;
         flex-direction: column;
     }
-    
     .resizemsg {
         display: flex;
         color: white;
         font-family: 'Gotham', sans-serif;
     }
-
     .bg {
         display: none;
     }
@@ -966,19 +964,15 @@ input[type="checkbox"]:checked:before {
     .petitlogo {
         display: none;
     }
-
     .legalsgame {
         display: none;
     }
-
     .owned {
         display: none;
     }
-
     .zoomall{
         display: none;
     }
-
     .score {
         display: none;
     }
@@ -988,5 +982,16 @@ input[type="checkbox"]:checked:before {
     .waitingscreen {
         display: none!important;
     }
-
+    .consign {
+        display: none!important;
+    }
+    .cursor{
+        display: none;
+    }
+    .cursor2 {
+        display: none;
+    }
+    .imgbug {
+        display: none!important;
+    }
 }
